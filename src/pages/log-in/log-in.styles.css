@@ -1,0 +1,32 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    position: absolute;
+    width: 100%;
+    top: 10rem;
+    z-index: 50;
+    align-items: center;
+}
+
+.form-container div {
+    font-size: .8rem;
+    margin-top: 1rem;
+}
+
+.form-container a {
+    color: white;
+    text-decoration: underline;
+}
+
+input {
+    padding: .5rem;
+    margin-top: 1rem;
+    width: 13rem;
+    font-weight: 700;
+}
+
+.input-submit {
+    width: 7rem;
+    cursor: pointer;
+}

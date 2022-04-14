@@ -1,0 +1,64 @@
+.video-container {
+    width: 100%;
+    height: 78vw;
+}
+
+video {
+    width: 100%;
+    height: 100vw;
+    object-fit: contain;
+}
+
+.overlay-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 9rem;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    text-align: center;
+}
+
+#overlay-title {
+    font-family: 'Rubik Moonrocks', cursive;
+    letter-spacing: .5rem;
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+#overlay-subtitle {
+    font-family: 'Grape Nuts', cursive;
+    font-size: 1.2rem;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85vw;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (min-width: 600px) {
+    video {
+        height: 100%;
+    }
+    .overlay-text {
+        top: 15rem;
+    }
+    .overlay {
+        height: 57vw;
+    }
+    .video-container {
+        height: 100%;
+    }
+    #overlay-title {
+        font-size: 2rem;
+    }
+    
+    #overlay-subtitle {
+        font-size: 1.5rem;
+    }
+}
