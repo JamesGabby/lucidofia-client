@@ -5,14 +5,12 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { setUser } from "../../features/user/userSlice";
 
-
 function LogIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const [userId, setUserId] = useState('');
 
-    //const user = useSelector((state) => state.user)
+    const user = useSelector((state) => state.user)
     const dispatch = useDispatch()
     
     const postToServer = () => {
@@ -35,30 +33,23 @@ function LogIn() {
                     return Promise.reject(error)
                 }
 
-                //this.setState({ userId: data.user._id })
-                setUserId(data.user._id)
                 dispatch(setUser(data.user._id))
             }).catch(error => {
-                //this.setState({ errorMessage: error.toString() })
                 setErrorMessage(error.toString())
                 console.error('There was an error.', errorMessage);
             })
     }
 
     const handleEmailChange = (event) => {
-        //this.setState({email: event.target.value});
         setEmail(event.target.value)
     }
 
     const handlePasswordChange = (event) => {
-        //this.setState({password: event.target.value});
         setPassword(event.target.value)
     }
 
     const handleSubmit = (event) => {
         postToServer()
-
-        //this.setState({email: '', password: ''});
         setEmail('')
         setPassword('')
         event.preventDefault();
@@ -81,8 +72,8 @@ function LogIn() {
                         Sign up
                     </Link>
                 </div>
+                <h1>hello {user}</h1>
             </form>
-            dd
         </div>
     );
 }
