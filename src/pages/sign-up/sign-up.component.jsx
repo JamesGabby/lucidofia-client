@@ -28,7 +28,7 @@ class SignUp extends React.Component {
             })
         };
 
-        const response = await fetch('http://localhost:3003/users', requestOptions)
+        const response = await fetch('http://localhost:8080/users', requestOptions)
         const data = await response.json()  
         console.log(data);          
     }

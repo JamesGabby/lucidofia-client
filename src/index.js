@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import LogIn from './pages/log-in/log-in.component';
 import SignUp from './pages/sign-up/sign-up.component';
+import Journal from './pages/journal/journal.component';
 import reportWebVitals from './reportWebVitals';
 import {
   BrowserRouter,
@@ -24,11 +25,11 @@ root.render(
           <Route path="/" element={<App />} />
           <Route path="login" element={<LogIn />} />
           <Route path="signup" element={<SignUp />} />
+          <Route path="journal" element={<Journal />} />
         </Routes>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
-  
 );
 
 // If you want to start measuring performance in your app, pass a function

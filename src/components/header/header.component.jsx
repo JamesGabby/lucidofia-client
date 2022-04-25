@@ -2,7 +2,7 @@ import React from "react";
 import './header.styles.css'
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { setUser, removeUser } from "../../features/user/userSlice";
+import { setUser } from "../../features/user/userSlice";
 
 const Header = () => {
     const user = useSelector((state) => state.user)
@@ -21,7 +21,9 @@ const Header = () => {
             </div>
             <div className="right-side">
                 <p id="link">About</p>
-                <p id="link">Journal</p>
+                <Link to='/journal'>
+                    <p id="link" style={{color: 'black'}}>Journal</p>
+                </Link>
                 <p id="link">Contact</p>
                 {
                     user.length === 0 ? 
