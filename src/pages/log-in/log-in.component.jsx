@@ -23,7 +23,7 @@ function LogIn() {
             })
         };
 
-        fetch('http://localhost:3003/users/login', requestOptions)
+        fetch('http://localhost:8080/users/login', requestOptions)
             .then(async response => {
                 const isJson = response.headers.get('content-type')?.includes('application/json')
                 const data = isJson && await response.json()
