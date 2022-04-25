@@ -4,6 +4,7 @@ import Header from "../../components/header/header.component";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { setUser } from "../../features/user/userSlice";
+import { setUserToken } from "../../features/user/userTokenSlice";
 
 function LogIn() {
     const [email, setEmail] = useState('');
@@ -11,6 +12,7 @@ function LogIn() {
     const [errorMessage, setErrorMessage] = useState('');
 
     const user = useSelector((state) => state.user)
+    const userToken = useSelector((state) => state.userToken)
     const dispatch = useDispatch()
     
     const postToServer = () => {
@@ -33,6 +35,7 @@ function LogIn() {
                     return Promise.reject(error)
                 }
 
+                dispatch(setUserToken(data.token))
                 dispatch(setUser(data.user._id))
             }).catch(error => {
                 setErrorMessage(error.toString())
@@ -73,6 +76,7 @@ function LogIn() {
                     </Link>
                 </div>
                 <h1>hello {user}</h1>
+                <h1>hello {userToken}</h1>
             </form>
         </div>
     );
