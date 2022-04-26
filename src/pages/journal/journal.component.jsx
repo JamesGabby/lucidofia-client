@@ -6,12 +6,11 @@ import { useSelector } from 'react-redux';
 const Journal = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [lucid, setLucid] = useState('');
-    const [totalDreams, setTotalDreams] = useState('');
+    const [lucid, setLucid] = useState(false);
+    const [totalDreams, setTotalDreams] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
 
-    const user = useSelector((state) => state.user)
-
+    const userToken = useSelector((state) => state.userToken)
     const postToServer = async () => {
         const requestOptions = {
             method: 'POST',
@@ -47,7 +46,7 @@ const Journal = () => {
     }
 
     useEffect(() => {
-        const headers = { 'Bearer Token': user }
+        const headers = { Authorization: `Bearer ${userToken}` }
         // GET request using fetch with error handling
         fetch(`http://localhost:8080/dreams`, { headers })
             .then(async response => {
@@ -61,7 +60,6 @@ const Journal = () => {
                 }
     
                 setTotalDreams(data)
-                console.log(this.state.totalDreams)
             })
             .catch(error => {
                 setErrorMessage(error.toString());
@@ -69,7 +67,6 @@ const Journal = () => {
             });
     })
 
-    
     return (
         <div className="login-signup-container">
             <Header />
@@ -85,8 +82,15 @@ const Journal = () => {
                         <input placeholder="Password" type="password" value={lucid} onChange={handlePasswordChange} />
                     </label>
                     <input className="input-submit" type="submit" value="Add dream" />
-                    <h1 style={{color: 'white'}}>Dreams {totalDreams}</h1>
-                    <h1>hello {user}</h1>
+                    {
+                        totalDreams.map((dream, i) => (
+                            <div className="dream-list">
+                                <h1>#{i+1}{' '}{dream.title}</h1>
+                                <p>{dream.description}</p>
+                                <p>{dream.emotionsAndFeelings}</p>
+                            </div>
+                        ))
+                    }
                 </form>
             </div>
         </div>
