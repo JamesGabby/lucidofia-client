@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/lucidofia-client/static/css/main.aee257a6.css",
+    "main.js": "/lucidofia-client/static/js/main.bf3f09a7.js",
+    "static/js/787.da136e5a.chunk.js": "/lucidofia-client/static/js/787.da136e5a.chunk.js",
+    "index.html": "/lucidofia-client/index.html",
+    "main.aee257a6.css.map": "/lucidofia-client/static/css/main.aee257a6.css.map",
+    "main.bf3f09a7.js.map": "/lucidofia-client/static/js/main.bf3f09a7.js.map",
+    "787.da136e5a.chunk.js.map": "/lucidofia-client/static/js/787.da136e5a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aee257a6.css",
+    "static/js/main.bf3f09a7.js"
+  ]
+}
