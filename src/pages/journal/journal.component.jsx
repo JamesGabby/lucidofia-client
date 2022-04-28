@@ -6,47 +6,51 @@ import { useSelector } from 'react-redux';
 const Journal = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [emotions, setEmotions] = useState('');
     const [lucid, setLucid] = useState(false);
     const [totalDreams, setTotalDreams] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
 
     const userToken = useSelector((state) => state.userToken)
+    const headers = { 'Content-Type': 'application/json', Authorization: `Bearer ${userToken}` }
+
     const postToServer = async () => {
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: headers,
             body: JSON.stringify({
-                "name": this.state.name,
-                "email": this.state.email,
-                "password": this.state.password
+                "title": title,
+                "description": description,
+                "emotionsAndFeelings": emotions,
+                "wasLucid": lucid
             })
         };
 
-        const response = await fetch('http://localhost:8080/users', requestOptions)
-        const data = await response.json()  
-        console.log(data);          
+        await fetch('http://localhost:8080/dreams', requestOptions)
     }
 
-    const handleNameChange = (event) => {
+    const handleTitleChange = (event) => {
         setTitle(event.target.value)
     }
 
-    const handleEmailChange = (event) => {
+    const handleDescChange = (event) => {
         setDescription(event.target.value)
     }
 
-    const handlePasswordChange = (event) => {
-        setLucid(event.target.value)
+    const handleEmoteChange = (event) => {
+        setEmotions(event.target.value)
+    }
+
+    const handleLucidChange = (event) => {
+        setLucid(event.target.checked)
     }
 
     const handleSubmit = (event) => {
-        alert(title + ' ' + description + ' ' + lucid);
         postToServer()
         event.preventDefault();
     }
 
     useEffect(() => {
-        const headers = { Authorization: `Bearer ${userToken}` }
         // GET request using fetch with error handling
         fetch(`http://localhost:8080/dreams`, { headers })
             .then(async response => {
@@ -72,22 +76,32 @@ const Journal = () => {
             <Header />
             <div className="sign-up-container">
                 <form onSubmit={handleSubmit} className="form-container">
+                    <div className="journal-header-container">
+                        <h1>Welcome to Your Dream Journal!</h1>
+                        <h3>Got a new dream to add?</h3>
+                    </div>
                     <label>
-                        <input placeholder="Title" type="text" value={title} onChange={handleNameChange} />
+                        <input placeholder="Title" type="text" value={title} onChange={handleTitleChange} />
                     </label>
                     <label>
-                        <input placeholder="Description" type="text" value={description} onChange={handleEmailChange} />
+                        <input placeholder="Description" type="text" value={description} onChange={handleDescChange} />
                     </label>
                     <label>
-                        <input placeholder="Password" type="password" value={lucid} onChange={handlePasswordChange} />
+                        <input placeholder="Emotions & Feelings" type="text" value={emotions} onChange={handleEmoteChange} />
+                    </label>
+                    <label>Check if you were lucid!
+                         <input className="check-input" placeholder="Lucid" type="checkbox" checked={lucid} onChange={handleLucidChange} />
                     </label>
                     <input className="input-submit" type="submit" value="Add dream" />
                     {
                         totalDreams.map((dream, i) => (
-                            <div className="dream-list">
-                                <h1>#{i+1}{' '}{dream.title}</h1>
-                                <p>{dream.description}</p>
-                                <p>{dream.emotionsAndFeelings}</p>
+                            <div className="dream-list-container">
+                                <div className="dream-list">
+                                    <h1>#{i+1} {dream.title}</h1>
+                                    <p className="dream-desc">{dream.description}</p>
+                                    <p className="dream-emote">Emotions & Feelings: {dream.emotionsAndFeelings}</p>
+                                    <p className="dream-">Were you lucid? {dream.wasLucid ? 'Yes!' : 'Nope'}</p>
+                                </div>
                             </div>
                         ))
                     }
