@@ -16,7 +16,7 @@ const Header = () => {
         <div className="header-container">
             <div className="left-side">
                 <Link to='/'>
-                    <img src="/thoth.png" alt="logo" id="link" width={50} />
+                    <img src={process.env.PUBLIC_URL + '/thoth.png'} alt="logo" id="link" width={50} />
                 </Link>
             </div>
             <div className="right-side">

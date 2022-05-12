@@ -6,7 +6,7 @@ class LandingPageVideo extends React.Component {
         return (
             <div className="video-container">
                 <div className="overlay" />
-                <video src="/dreamy.mp4" loop autoPlay muted />
+                <video src={process.env.PUBLIC_URL + '/dreamy.mp4'} loop autoPlay muted />
                 <div className="overlay-text">
                     <h2 id="overlay-title">Lucidofia</h2>
                     <p id="overlay-subtitle">Wake up to the reality of dreams</p>
