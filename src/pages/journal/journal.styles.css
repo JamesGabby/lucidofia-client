@@ -24,3 +24,31 @@
 .check-input {
     width: 1rem;
 }
+
+.signup-or-login-msg1 {
+    color: white;
+    width: 100%;
+    padding-top: 20rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.signup-or-login-msg1 a {
+    color: white;
+    text-decoration: underline;
+}
+
+#span-journal {
+    width: .7rem;
+}
+
+.signup-or-login-msg2 {
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}

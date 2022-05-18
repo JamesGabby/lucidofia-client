@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { setUser } from "../../features/user/userSlice";
 import { setUserToken } from "../../features/user/userTokenSlice";
+import { setUserName } from "../../features/user/userNameSlice";
 
 function LogIn() {
     const [email, setEmail] = useState('');
@@ -13,6 +14,7 @@ function LogIn() {
 
     const user = useSelector((state) => state.user)
     const userToken = useSelector((state) => state.userToken)
+    const userName = useSelector((state) => state.userName)
     const dispatch = useDispatch()
     
     const postToServer = () => {
@@ -37,6 +39,7 @@ function LogIn() {
 
                 dispatch(setUserToken(data.token))
                 dispatch(setUser(data.user._id))
+                dispatch(setUserName(data.user.name))
             }).catch(error => {
                 setErrorMessage(error.toString())
                 console.error('There was an error.', errorMessage);
@@ -61,6 +64,8 @@ function LogIn() {
     return (
         <div className="login-container">
             <Header />
+            {
+                user.length === 0 ? 
             <form onSubmit={handleSubmit} className="form-container">
                 <label>
                     <input placeholder="Email" type="text" value={email} onChange={handleEmailChange} />
@@ -75,9 +80,12 @@ function LogIn() {
                         Sign up
                     </Link>
                 </div>
-                <h1>hello {user}</h1>
-                <h1>hello {userToken}</h1>
             </form>
+            :   
+            <div className="form-container">
+                <h1>Welcome {userName}!</h1>
+            </div>
+            }
         </div>
     );
 }
