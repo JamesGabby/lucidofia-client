@@ -5,6 +5,7 @@ import App from './App';
 import LogIn from './pages/log-in/log-in.component';
 import SignUp from './pages/sign-up/sign-up.component';
 import Journal from './pages/journal/journal.component';
+import About from './pages/about/about.component';
 import reportWebVitals from './reportWebVitals';
 import {
   BrowserRouter,
@@ -26,6 +27,7 @@ root.render(
           <Route path="login" element={<LogIn />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="journal" element={<Journal />} />
+          <Route path="about" element={<About />} />
         </Routes>
       </BrowserRouter>
     </Provider>

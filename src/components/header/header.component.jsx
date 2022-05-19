@@ -20,11 +20,13 @@ const Header = () => {
                 </Link>
             </div>
             <div className="right-side">
-                <p id="link">About</p>
+                <Link to='/about'>
+                    <p id="link" style={{color: 'black'}}>About</p>
+                </Link>
                 <Link to='/journal'>
                     <p id="link" style={{color: 'black'}}>Journal</p>
                 </Link>
-                <p id="link">Contact</p>
+                <p id="link">Shop</p>
                 {
                     user.length === 0 ? 
                         <Link to='/login'>

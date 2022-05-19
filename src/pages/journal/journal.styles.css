@@ -51,4 +51,33 @@
     flex-direction: row;
     justify-content: center;
     text-align: center;
+    font-family: 'Oswald';
 }
+
+#desc {
+    width: 20rem;
+    height: 150px;
+    padding: 5px 1.8rem;
+    margin-top: 1rem;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    font-family: 'Oswald';
+    font-weight: 800;
+  }
+
+  input {
+    width: 20rem;
+    padding: 5px 29px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    font-weight: 800;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    font-family: 'Oswald';
+  }
+
+  

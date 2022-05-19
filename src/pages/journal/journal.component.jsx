@@ -28,6 +28,10 @@ const Journal = () => {
         };
 
         await fetch('http://localhost:8080/dreams', requestOptions)
+        setTitle('')
+        setDescription('')
+        setEmotions('')
+        setLucid(false)
     }
 
     const handleTitleChange = (event) => {
@@ -84,13 +88,13 @@ const Journal = () => {
                         <label>
                             <input placeholder="Title" type="text" value={title} onChange={handleTitleChange} />
                         </label>
-                        <label>
-                            <input placeholder="Description" type="text" value={description} onChange={handleDescChange} />
+                        <label> 
+                            <textarea id="desc" placeholder="Description" type="text" value={description} onChange={handleDescChange} />
                         </label>
                         <label>
                             <input placeholder="Emotions & Feelings" type="text" value={emotions} onChange={handleEmoteChange} />
                         </label>
-                        <label>Check if you were lucid!
+                        <label>Tick if you were lucid!
                             <input className="check-input" placeholder="Lucid" type="checkbox" checked={lucid} onChange={handleLucidChange} />
                         </label>
                         <input className="input-submit" type="submit" value="Add dream" />
@@ -106,7 +110,7 @@ const Journal = () => {
                                 </div>
                             ))
                         }
-                    </form>
+                    </form>           
                 </div>
             :   <div>
                 <div className="signup-or-login-msg1">
@@ -124,7 +128,6 @@ const Journal = () => {
                     <p>to view and create dream entries</p>
                 </div>
                 </div>
-                
             }
         </div>
     );
