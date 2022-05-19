@@ -30,7 +30,10 @@ class SignUp extends React.Component {
 
         const response = await fetch('http://localhost:8080/users', requestOptions)
         const data = await response.json()  
-        console.log(data);          
+        console.log(data);
+        this.setState({name: ''}) 
+        this.setState({email: ''})      
+        this.setState({password: ''})
     }
 
     handleNameChange(event) {
@@ -46,7 +49,6 @@ class SignUp extends React.Component {
     }
 
     handleSubmit(event) {
-        alert(this.state.name + ' ' + this.state.email + ' ' + this.state.password);
         this.postToServer()
         event.preventDefault();
     }
