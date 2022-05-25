@@ -66,25 +66,25 @@ function LogIn() {
             <Header />
             {
                 user.length === 0 ? 
-            <form onSubmit={handleSubmit} className="form-container">
-                <label>
-                    <input placeholder="Email" type="text" value={email} onChange={handleEmailChange} />
-                </label>
-                <label>
-                    <input placeholder="Password" type="password" value={password} onChange={handlePasswordChange} />
-                </label>
-                <input className="input-submit" type="submit" value="Log in" />
-                <div>
-                    Don't have an account?{' '}
-                    <Link to='/signup'>
-                        Sign up
-                    </Link>
-                </div>
-            </form>
+                <form onSubmit={handleSubmit} className="form-container">
+                    <label>
+                        <input placeholder="Email" type="text" value={email} onChange={handleEmailChange} />
+                    </label>
+                    <label>
+                        <input placeholder="Password" type="password" value={password} onChange={handlePasswordChange} />
+                    </label>
+                    <input className="input-submit" type="submit" value="Log in" />
+                    <div>
+                        Don't have an account?{' '}
+                        <Link to='/signup'>
+                            Sign up
+                        </Link>
+                    </div>
+                </form>
             :   
-            <div className="form-container">
-                <h1>Welcome {userName}!</h1>
-            </div>
+                <div className="form-container">
+                    <h1>Welcome {userName}!</h1>
+                </div>
             }
         </div>
     );

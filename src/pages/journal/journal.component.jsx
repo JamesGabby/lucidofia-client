@@ -98,18 +98,20 @@ const Journal = () => {
                             <input className="check-input" placeholder="Lucid" type="checkbox" checked={lucid} onChange={handleLucidChange} />
                         </label>
                         <input className="input-submit" type="submit" value="Add dream" />
-                        {
-                            totalDreams.map((dream, i) => (
-                                <div className="dream-list-container">
-                                    <div className="dream-list">
-                                        <h1>#{i+1} - {dream.title}</h1>
-                                        <p className="dream-desc">{dream.description}</p>
-                                        <p className="dream-emote">Emotions & Feelings: {dream.emotionsAndFeelings}</p>
-                                        <p className="dream-">Were you lucid? {dream.wasLucid ? 'Yes!' : 'Nope'}</p>
+                        <div className="dreams-container">
+                            {
+                                totalDreams.slice(0).reverse().map((dream, i) => (
+                                    <div className="dream-list-container">
+                                        <div className="dream-list">
+                                            <h1>{dream.title}</h1>
+                                            <p className="dream-desc">{dream.description}</p>
+                                            <p className="dream-emote">Emotions & Feelings: {dream.emotionsAndFeelings}</p>
+                                            <p className="dream-">Were you lucid? {dream.wasLucid ? 'Yes!' : 'Nope'}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            ))
-                        }
+                                ))
+                            }
+                        </div>
                     </form>           
                 </div>
             :   <div>
