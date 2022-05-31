@@ -89,12 +89,12 @@ const Journal = () => {
                             <input placeholder="Title" type="text" value={title} onChange={handleTitleChange} />
                         </label>
                         <label> 
-                            <textarea id="desc" placeholder="Description" type="text" value={description} onChange={handleDescChange} />
+                            <textarea id="desc" placeholder="What happened?" type="text" value={description} onChange={handleDescChange} />
                         </label>
                         <label>
-                            <input placeholder="Emotions & Feelings" type="text" value={emotions} onChange={handleEmoteChange} />
+                            <input placeholder="How did you feel?" type="text" value={emotions} onChange={handleEmoteChange} />
                         </label>
-                        <label>Tick if you were lucid!
+                        <label>Were you lucid?
                             <input className="check-input" placeholder="Lucid" type="checkbox" checked={lucid} onChange={handleLucidChange} />
                         </label>
                         <input className="input-submit" type="submit" value="Add dream" />

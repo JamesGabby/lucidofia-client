@@ -9,7 +9,10 @@ const Header = () => {
     const dispatch = useDispatch()
 
     const handleClick = () => {
+        // Remove the user
         dispatch(setUser(''))
+        // Refresh page so user data no longer remains
+        window.location.reload(false)
     }
 
     return (
