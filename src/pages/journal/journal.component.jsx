@@ -34,6 +34,15 @@ const Journal = () => {
         setLucid(false)
     }
 
+    const deleteDream = async (id) => {
+        const requestOptions = {
+            method: 'DELETE',
+            headers: headers
+        };
+
+        await fetch(`http://localhost:8080/dreams/${id}`, requestOptions)
+    }
+
     const handleTitleChange = (event) => {
         setTitle(event.target.value)
     }
@@ -85,6 +94,7 @@ const Journal = () => {
                         <div className="journal-header-container">
                             <h1>Got a new dream to add?</h1>
                         </div>
+                        
                         <label>
                             <input placeholder="Title" type="text" value={title} onChange={handleTitleChange} />
                         </label>
@@ -103,9 +113,18 @@ const Journal = () => {
                                 totalDreams.slice(0).reverse().map((dream, i) => (
                                     <div className="dream-list-container">
                                         <div className="dream-list">
-                                            <h1>{dream.title}</h1>
-                                            <p className="dream-desc">{dream.description}</p>
-                                            <p className="dream-emote">Emotions & Feelings: {dream.emotionsAndFeelings}</p>
+                                            <span className="delete-button">
+                                                <button onClick={() => deleteDream(dream._id)}>X</button>
+                                            </span>
+                                            <div className="title-con">
+                                                <h1>{dream.title}</h1>
+                                            </div>
+                                            <div className="desc-con">
+                                                <p className="dream-desc">{dream.description}</p>
+                                            </div>
+                                            <div className="emote-con">
+                                                <p className="dream-emote">Emotions & Feelings: {dream._id}</p>
+                                            </div>
                                             <p className="dream-">Were you lucid? {dream.wasLucid ? 'Yes!' : 'Nope'}</p>
                                         </div>
                                     </div>
