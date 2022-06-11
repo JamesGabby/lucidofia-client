@@ -123,7 +123,7 @@ const Journal = () => {
                                                 <p className="dream-desc">{dream.description}</p>
                                             </div>
                                             <div className="emote-con">
-                                                <p className="dream-emote">Emotions & Feelings: {dream._id}</p>
+                                                <p className="dream-emote">Emotions & Feelings: {dream.emotionsAndFeelings}</p>
                                             </div>
                                             <p className="dream-">Were you lucid? {dream.wasLucid ? 'Yes!' : 'Nope'}</p>
                                         </div>
