@@ -28,4 +28,10 @@
 #link {
     padding-right: 1rem;
     cursor: pointer;
+    color: black;
+}
+
+#link:hover {
+    font-size: 1.3rem;
+    color: white;
 }

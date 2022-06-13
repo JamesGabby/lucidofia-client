@@ -24,10 +24,10 @@ const Header = () => {
             </div>
             <div className="right-side">
                 <Link to='/about'>
-                    <p id="link" style={{color: 'black'}}>About</p>
+                    <p id="link">About</p>
                 </Link>
                 <Link to='/journal'>
-                    <p id="link" style={{color: 'black'}}>Journal</p>
+                    <p id="link">Journal</p>
                 </Link>
                 <p id="link">Shop</p>
                 {
