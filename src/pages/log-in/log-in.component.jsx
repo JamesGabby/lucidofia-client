@@ -13,7 +13,7 @@ function LogIn() {
     const [errorMessage, setErrorMessage] = useState('');
 
     const user = useSelector((state) => state.user)
-    const userToken = useSelector((state) => state.userToken)
+    //const userToken = useSelector((state) => state.userToken)
     const userName = useSelector((state) => state.userName)
     const dispatch = useDispatch()
     

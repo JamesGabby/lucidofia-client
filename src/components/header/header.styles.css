@@ -3,9 +3,7 @@
     width: 100%;
     height: 5rem;
     z-index: 10;
-    background-image: url('/public//background.png');
-    background-attachment: fixed;
-    background-position: center;
+    background-color: #180D43;
     position: fixed;
 }
 
@@ -14,6 +12,12 @@
     flex-basis: 40%;
     align-items: center;
     padding-left: 1rem;
+}
+
+#title {
+    color: #cfd8eb;
+    padding-left: 1vw;
+    font-family: 'Nunito';
 }
 
 .right-side {
@@ -29,7 +33,7 @@
 
 #link {
     cursor: pointer;
-    color: white;
+    color: #fff;
     z-index: 100;
     font-size: 1.3rem;
     padding: 0rem
@@ -37,7 +41,7 @@
 
 #menu {
     cursor: pointer;
-    color: white;
+    color: #cfd8eb;
     z-index: 100;
     font-size: 1.3rem;
     padding-right: 1rem
@@ -45,11 +49,11 @@
 
 .menu-dropdown-right {
     width: 20%;
-    height: 200vw;
+    height: 210vw;
     display: block;
     position: absolute;
     z-index: 99;
-    background-color: rgba(24, 9, 100, 1);
+    background-color: #2a1e57;
     right: 0;
     animation: fadeIn 1s;
 }
@@ -73,17 +77,17 @@
 .links {
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding-top: 4rem;
+    padding-left: 2rem;
 }
 
 @media only screen and (max-width: 600px) {
     .menu-dropdown-right {
-        width: 50%;
+        width: 60%;
     }
 
     .menu-dropdown-left {
-        width: 50%;
+        width: 40%;
     }
 }
 

@@ -30,6 +30,7 @@ const Header = () => {
                 <Link to='/'>
                     <img src={process.env.PUBLIC_URL + '/logo.svg'} alt="logo" id="link" width={50} />
                 </Link>
+                <h2 id="title">Lucidofia</h2>
             </div>
             <div className="right-side">
                 <p id="menu" onClick={handleMenuClick}>{!showMenu ? <GiHamburgerMenu style={{fontSize: '2rem'}} /> : <GrClose style={{fontSize: '2rem', backgroundColor: 'white'}} />}</p>
