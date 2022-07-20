@@ -84,6 +84,9 @@ function LogIn() {
             :   
                 <div className="form-container">
                     <h1>Welcome {userName}!</h1>
+                    <Link to='/journal'>
+                        <input className="input-submit" type="submit" value="Go to journal" />
+                    </Link>
                 </div>
             }
         </div>

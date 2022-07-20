@@ -5,7 +5,7 @@
     text-align: center;
     padding: 1rem 2rem;
     border-radius: 8px;
-    background-color: rgb(36, 33, 33);
+    background-color: black;
 }
 
 .dream-list-container {
@@ -19,7 +19,11 @@
     text-align: center;
 }
 
-.dream-desc {
+.fs {
+    font-size: 1rem;
+}
+
+.dream-emote {
     font-size: 1.2rem;
 }
 
@@ -86,32 +90,64 @@
 
 .title-con {
     width: 100%;
-    background-color: rgb(40, 22, 112);
+    background-color: #180D43;
     border-radius: 8px;
     padding: 0 .5rem;
+    margin: 0 0 .7rem 0 !important;
 }
 
 .desc-con {
     width: 100%;
-    background-color: rgb(205, 56, 27);
+    background-color: #180D43;
     border-radius: 8px;
     padding: 0 .5rem;
+    margin: 0 0 .7rem 0 !important;
+
 }
 
 .emote-con {
     width: 100%;
-    background-color: rgb(105, 16, 133);
+    background-color: #180D43;
     border-radius: 8px;
+    margin: 0 0 .7rem 0 !important;
+}
+
+.lucid-con {
+    width: 100%;
+    background-color: #180D43;
+    border-radius: 8px;
+    padding: .5rem 0;
+    margin: 0 0 .7rem 0 !important;
+    font-size: 1rem;
 }
 
 .delete-button {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    font-size: 3rem;
+    cursor: pointer;
+    
 }
 
-.delete-button button {
-    cursor: pointer;
-    font-weight: 700;
+.delete-button div {
+    padding: 0;
+    margin: 0;
 }
+
+label {
+    font-size: 1rem;
+    display: flex;
+    align-self: start;
+    padding-top: 0rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.dream-label {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
   

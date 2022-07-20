@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState } from "react";
 import { setUser } from "../../features/user/userSlice";
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { GrClose } from 'react-icons/gr'
+import { CgClose } from 'react-icons/cg'
 
 const Header = () => {
     const [showMenu, setShowMenu] = useState(false)
@@ -33,7 +33,7 @@ const Header = () => {
                 <h2 id="title">Lucidofia</h2>
             </div>
             <div className="right-side">
-                <p id="menu" onClick={handleMenuClick}>{!showMenu ? <GiHamburgerMenu style={{fontSize: '2rem'}} /> : <GrClose style={{fontSize: '2rem', backgroundColor: 'white'}} />}</p>
+                <p id="menu" onClick={handleMenuClick}>{!showMenu ? <GiHamburgerMenu style={{fontSize: '2rem'}} /> : <CgClose style={{fontSize: '2rem', color: 'white'}} />}</p>
             </div>
             <div className={showMenu ? 'menu-dropdown-left' : 'menu-dropdown-hide'} />
             <div className={showMenu ? 'menu-dropdown-right' : 'menu-dropdown-hide'}>

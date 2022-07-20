@@ -3,6 +3,7 @@ import './journal.styles.css'
 import Header from "../../components/header/header.component";
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
+import { CgClose } from 'react-icons/cg'
 
 const Journal = () => {
     const [title, setTitle] = useState('');
@@ -86,15 +87,14 @@ const Journal = () => {
     })
 
     return (
-        <div className="login-signup-container">
+        <div>
             <Header />
             {userToken.length > 1 ?
-                <div className="sign-up-container">
+                <div className="login-signup-container">
                     <form onSubmit={handleSubmit} className="form-container">
                         <div className="journal-header-container">
                             <h1>Got a new dream to add?</h1>
                         </div>
-                        
                         <label>
                             <input placeholder="Title" type="text" value={title} onChange={handleTitleChange} />
                         </label>
@@ -104,9 +104,9 @@ const Journal = () => {
                         <label>
                             <input placeholder="How did you feel?" type="text" value={emotions} onChange={handleEmoteChange} />
                         </label>
-                        <label>Were you lucid?
+                        <p>Were you lucid?
                             <input className="check-input" placeholder="Lucid" type="checkbox" checked={lucid} onChange={handleLucidChange} />
-                        </label>
+                        </p>
                         <input className="input-submit" type="submit" value="Add dream" />
                         <div className="dreams-container">
                             {
@@ -114,18 +114,22 @@ const Journal = () => {
                                     <div className="dream-list-container">
                                         <div className="dream-list">
                                             <span className="delete-button">
-                                                <button onClick={() => deleteDream(dream._id)}>X</button>
+                                                <div onClick={() => deleteDream(dream._id)}><CgClose style={{fontSize: '1.5rem', color: 'white'}} /></div>
                                             </span>
+                                            <label className="dream-label">Title</label>
                                             <div className="title-con">
-                                                <h1>{dream.title}</h1>
+                                                <h2>{dream.title}</h2>
                                             </div>
+                                            <label className="dream-label">The dream</label>
                                             <div className="desc-con">
-                                                <p className="dream-desc">{dream.description}</p>
+                                                <p className="fs">{dream.description}</p>
                                             </div>
+                                            <label className="dream-label">How you felt</label>
                                             <div className="emote-con">
-                                                <p className="dream-emote">Emotions & Feelings: {dream.emotionsAndFeelings}</p>
+                                                <p className="fs">{dream.emotionsAndFeelings}</p>
                                             </div>
-                                            <p className="dream-">Were you lucid? {dream.wasLucid ? 'Yes!' : 'Nope'}</p>
+                                            <label className="dream-label">Were you lucid?</label>
+                                            <p className="lucid-con">{dream.wasLucid ? 'Yes!' : 'Nope'}</p>
                                         </div>
                                     </div>
                                 ))
@@ -133,6 +137,7 @@ const Journal = () => {
                         </div>
                     </form>           
                 </div>
+
             :   <div>
                 <div className="signup-or-login-msg1">
                         <Link to='/signup'>
