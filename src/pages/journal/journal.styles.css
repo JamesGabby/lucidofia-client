@@ -4,9 +4,14 @@
     color: white;
     position: absolute;
     width: 100%;
-    top: 7rem;
+    top: 3rem;
     align-items: center;
 }
+
+.css-q2lp9a-MuiInputBase-root-MuiOutlinedInput-root {
+    margin: 0 !important;
+}
+
 
 .journal-container div {
     font-size: .8rem;

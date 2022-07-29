@@ -4,7 +4,7 @@ import Header from "../../components/header/header.component";
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import { CgClose } from 'react-icons/cg'
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import TextField from '@mui/material/TextField';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
@@ -17,7 +17,7 @@ const Journal = () => {
     const [lucid, setLucid] = useState(false);
     const [totalDreams, setTotalDreams] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
-    const [value, setValue] = React.useState(new Date());
+    const [date, setDate] = React.useState(new Date());
 
     const darkTheme = createTheme({
         palette: {
@@ -78,7 +78,7 @@ const Journal = () => {
     }
     
     const handleChange = (newValue) => {
-        setValue(newValue);
+        setDate(newValue);
     }
 
     useEffect(() => {
@@ -112,15 +112,16 @@ const Journal = () => {
                             <h1>Add dream</h1>
                         </div>
                         <div className="journal-headers">
+                        <h3>Date and Time</h3>
                             <ThemeProvider theme={darkTheme}>
                                 <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                    <DesktopDatePicker
-                                        label="Date of  Dream"
+                                    <DateTimePicker
+                                        renderInput={(props) => <TextField {...props} />}
+                                        value={date}
+                                        onChange={(newValue) => {
+                                          setDate(newValue)
+                                        }}
                                         disableFuture={true}
-                                        inputFormat="dd/MM/yyyy"
-                                        value={value}
-                                        onChange={handleChange}
-                                        renderInput={(params) => <TextField {...params} />}
                                     />
                                 </LocalizationProvider>
                             </ThemeProvider>
