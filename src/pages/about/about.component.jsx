@@ -3,10 +3,12 @@ import './about.styles.css'
 import Header from "../../components/header/header.component";
 
 const About = () => {
+
     return (
-        <div className="login-signup-container">
+        <div>
             <Header />
-            <div className="about-container">About</div>
+            <div className="about-container">
+            </div>
         </div>
     );
 }

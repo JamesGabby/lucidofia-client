@@ -4,6 +4,11 @@ import Header from "../../components/header/header.component";
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import { CgClose } from 'react-icons/cg'
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import TextField from '@mui/material/TextField';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const Journal = () => {
     const [title, setTitle] = useState('');
@@ -12,6 +17,13 @@ const Journal = () => {
     const [lucid, setLucid] = useState(false);
     const [totalDreams, setTotalDreams] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
+    const [value, setValue] = React.useState(new Date());
+
+    const darkTheme = createTheme({
+        palette: {
+          mode: 'dark',
+        },
+      });
 
     const userToken = useSelector((state) => state.userToken)
     const headers = { 'Content-Type': 'application/json', Authorization: `Bearer ${userToken}` }
@@ -64,6 +76,10 @@ const Journal = () => {
         postToServer()
         event.preventDefault();
     }
+    
+    const handleChange = (newValue) => {
+        setValue(newValue);
+    }
 
     useEffect(() => {
         // GET request using fetch with error handling
@@ -90,26 +106,49 @@ const Journal = () => {
         <div>
             <Header />
             {userToken.length > 1 ?
-                <div className="login-signup-container">
-                    <form onSubmit={handleSubmit} className="form-container">
+                <div>
+                    <form onSubmit={handleSubmit} className="journal-container">
                         <div className="journal-header-container">
-                            <h1>Got a new dream to add?</h1>
+                            <h1>Add dream</h1>
+                        </div>
+                        <div className="journal-headers">
+                            <ThemeProvider theme={darkTheme}>
+                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                    <DesktopDatePicker
+                                        label="Date of  Dream"
+                                        disableFuture={true}
+                                        inputFormat="dd/MM/yyyy"
+                                        value={value}
+                                        onChange={handleChange}
+                                        renderInput={(params) => <TextField {...params} />}
+                                    />
+                                </LocalizationProvider>
+                            </ThemeProvider>
+                        </div>
+                        <div className="journal-headers">
+                            <h3>Title</h3>
                         </div>
                         <label>
-                            <input placeholder="Title" type="text" value={title} onChange={handleTitleChange} />
+                            <input className="add-dream-input" placeholder="Pink Giraffe" type="text" value={title} onChange={handleTitleChange} />
                         </label>
+                        <div className="journal-headers">
+                            <h3>What happened?</h3>
+                        </div>
                         <label> 
-                            <textarea id="desc" placeholder="What happened?" type="text" value={description} onChange={handleDescChange} />
+                            <textarea className="add-dream-text-area" placeholder="I opened my door then..." type="text" value={description} onChange={handleDescChange} />
                         </label>
+                        <div className="journal-headers">
+                            <h3>How did you feel?</h3>
+                        </div>
                         <label>
-                            <input placeholder="How did you feel?" type="text" value={emotions} onChange={handleEmoteChange} />
+                            <input className="add-dream-input" placeholder="Amused, shocked, happy..." type="text" value={emotions} onChange={handleEmoteChange} />
                         </label>
-                        <p>Were you lucid?
+                        <h3>Were you lucid?
                             <input className="check-input" placeholder="Lucid" type="checkbox" checked={lucid} onChange={handleLucidChange} />
-                        </p>
-                        <input className="input-submit" type="submit" value="Add dream" />
+                        </h3>
+                        <input className="journal-submit" type="submit" value="Add dream" />
                         <div className="dreams-container">
-                            {
+                            { 
                                 totalDreams.slice(0).reverse().map((dream, i) => (
                                     <div className="dream-list-container">
                                         <div className="dream-list">

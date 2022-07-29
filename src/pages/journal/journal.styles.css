@@ -1,3 +1,23 @@
+.journal-container {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    position: absolute;
+    width: 100%;
+    top: 7rem;
+    align-items: center;
+}
+
+.journal-container div {
+    font-size: .8rem;
+    margin-top: 1rem;
+}
+
+.journal-container h3 {
+    font-size: .8rem;
+    margin-top: 1rem;
+}
+
 .dream-list {
     display: flex;
     flex-direction: column;
@@ -15,8 +35,19 @@
 .journal-header-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    width: 396px;
+}
+
+.journal-headers {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 396px;
+}
+
+.journal-headers h3 {
+    margin: 0;
 }
 
 .fs {
@@ -60,32 +91,72 @@
     font-family: 'Oswald';
 }
 
-#desc {
-    width: 20rem;
-    height: 150px;
-    padding: 5px 5px;
-    margin-top: 1rem;
+  .add-dream-input {
     box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
-    font-family: 'Oswald';
-    font-weight: 800;
-    letter-spacing: .08rem;
-  }
+    font-family: 'Nunito';
 
-  input {
-    width: 20rem;
-    padding: 5px 5px;
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+    gap: 10px;
+    width: 396px;
+    height: 46px;
+    background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(217, 217, 217, 0.1995) 101.85%);
+    border-radius: 0px 0px 7px 7px;
+    color: white;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.add-dream-text-area {
     box-sizing: border-box;
-    border: 2px solid #ccc;
-    font-weight: 800;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
-    font-family: 'Oswald';
-    letter-spacing: .08rem;
+
+    /* Auto layout */
+    font-family: 'Nunito';
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px;
+    gap: 10px;
+    color: white;
+    width: 396px;
+    height: 120px;
+    margin-top: 1rem;
+    background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(217, 217, 217, 0.1995) 101.85%);
+    border-radius: 0px 0px 7px 7px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.title-label {
+    /* Title */
+    width: 396px;
+    height: 27px;
+
+    /* Nunito/Subheader/Semibold 20 */
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+
+    /* light grey */
+    color: #CFD8EB;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
 }
 
 .title-con {
@@ -93,7 +164,7 @@
     background-color: #180D43;
     border-radius: 8px;
     padding: 0 .5rem;
-    margin: 0 0 .7rem 0 !important;
+    margin: 0 0 1rem 0 !important;
 }
 
 .desc-con {
@@ -147,6 +218,30 @@ label {
 .dream-label {
     display: flex;
     justify-content: flex-start;
+}
+
+.journal-submit {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 8px;
+    cursor: pointer;
+    width: 160px;
+    height: 46px;
+
+    /* dark blue */
+    background: #3E529D;
+    box-shadow: 0px 62px 254px rgba(185, 196, 240, 0.1), 0px 28.6645px 116.056px rgba(185, 196, 240, 0.0741675), 0px 16.4012px 67.6531px rgba(185, 196, 240, 0.0626781), 0px 9.95539px 42.5223px rgba(185, 196, 240, 0.0539948), 0px 5.99856px 26.7409px rgba(185, 196, 240, 0.0460052), 0px 3.34039px 15.6025px rgba(185, 196, 240, 0.0373219), 0px 1.43668px 7.04102px rgba(185, 196, 240, 0.0258325);
+    border-radius: 7px;
+    color: white;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
 
