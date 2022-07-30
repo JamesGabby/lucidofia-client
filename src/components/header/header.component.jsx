@@ -6,6 +6,10 @@ import { useState } from "react";
 import { setUser } from "../../features/user/userSlice";
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { CgClose } from 'react-icons/cg'
+import { HiOutlineBookOpen } from 'react-icons/hi'
+import { FiTag, FiLogOut } from 'react-icons/fi'
+import { BsInfoCircle } from 'react-icons/bs'
+import { RiDraftLine } from 'react-icons/ri'
 
 const Header = () => {
     const [showMenu, setShowMenu] = useState(false)
@@ -38,20 +42,24 @@ const Header = () => {
             <div className={showMenu ? 'menu-dropdown-left' : 'menu-dropdown-hide'} />
             <div className={showMenu ? 'menu-dropdown-right' : 'menu-dropdown-hide'}>
                 <div className="links">
-                    <Link to='/about'>
-                        <p id="link">About</p>
+                    <Link to='/journal'>
+                        <p id="link"><HiOutlineBookOpen /> My Dreams</p>
                     </Link>
                     <Link to='/journal'>
-                        <p id="link">Journal</p>
+                        <p id="link"><RiDraftLine /> My Drafts</p>
                     </Link>
-                    <p id="link">Shop</p>
+                    <Link to='/about'>
+                        <p id="link"><BsInfoCircle /> About</p>
+                    </Link>
+                    
+                    <p id="link"><FiTag /> Shop</p>
                     {
                         user.length === 0 ? 
                             <Link to='/login'>
                                 <p id="link" style={{color: 'white'}}>Login</p>
                             </Link>
                         :
-                            <p id="link" onClick={handleLogoutClick}>Logout</p>
+                            <p id="link" onClick={handleLogoutClick} style={{paddingTop: '1.2rem'}}> <FiLogOut /> Logout</p>
                     }
                 </div>
                 

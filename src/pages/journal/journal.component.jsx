@@ -17,7 +17,7 @@ const Journal = () => {
     const [lucid, setLucid] = useState(false);
     const [totalDreams, setTotalDreams] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
-    const [date, setDate] = React.useState(new Date());
+    const [date, setDate] = useState(new Date());
 
     const darkTheme = createTheme({
         palette: {
@@ -33,6 +33,7 @@ const Journal = () => {
             method: 'POST',
             headers: headers,
             body: JSON.stringify({
+                "date": date,
                 "title": title,
                 "description": description,
                 "emotionsAndFeelings": emotions,
@@ -40,7 +41,7 @@ const Journal = () => {
             })
         };
 
-        await fetch('http://localhost:8080/dreams', requestOptions)
+        await fetch('https://secret-cove-06846.herokuapp.com/dreams', requestOptions)
         setTitle('')
         setDescription('')
         setEmotions('')
@@ -53,7 +54,7 @@ const Journal = () => {
             headers: headers
         };
 
-        await fetch(`http://localhost:8080/dreams/${id}`, requestOptions)
+        await fetch(`https://secret-cove-06846.herokuapp.com/dreams/${id}`, requestOptions)
     }
 
     const handleTitleChange = (event) => {
@@ -76,14 +77,11 @@ const Journal = () => {
         postToServer()
         event.preventDefault();
     }
-    
-    const handleChange = (newValue) => {
-        setDate(newValue);
-    }
 
+    
     useEffect(() => {
         // GET request using fetch with error handling
-        fetch(`http://localhost:8080/dreams`, { headers })
+        fetch(`https://secret-cove-06846.herokuapp.com/dreams`, { headers })
             .then(async response => {
                 const data = await response.json();
     
@@ -100,7 +98,7 @@ const Journal = () => {
                 setErrorMessage(error.toString());
                 console.error('There was an error!', errorMessage);
             });
-    })
+    }, [totalDreams])
 
     return (
         <div>
@@ -119,7 +117,7 @@ const Journal = () => {
                                         renderInput={(props) => <TextField {...props} />}
                                         value={date}
                                         onChange={(newValue) => {
-                                          setDate(newValue)
+                                          setDate(newValue.getDay() + ' ' + newValue.getMonth())
                                         }}
                                         disableFuture={true}
                                     />
@@ -156,6 +154,10 @@ const Journal = () => {
                                             <span className="delete-button">
                                                 <div onClick={() => deleteDream(dream._id)}><CgClose style={{fontSize: '1.5rem', color: 'white'}} /></div>
                                             </span>
+                                            <label className="dream-label">Date and Time</label>
+                                            <div className="title-con">
+                                                <h2>{dream.date}</h2>
+                                            </div>
                                             <label className="dream-label">Title</label>
                                             <div className="title-con">
                                                 <h2>{dream.title}</h2>

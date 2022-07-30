@@ -28,7 +28,7 @@ class SignUp extends React.Component {
             })
         };
 
-        const response = await fetch('http://localhost:8080/users', requestOptions)
+        const response = await fetch('https://secret-cove-06846.herokuapp.com/users', requestOptions)
         const data = await response.json()  
         console.log(data);
         this.setState({name: ''}) 

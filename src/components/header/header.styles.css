@@ -36,7 +36,13 @@
     color: #fff;
     z-index: 100;
     font-size: 1.3rem;
-    padding: 0rem
+    padding: 0rem;
+    margin: 0.7rem;
+}
+
+#link:hover {
+    font-size: 1.4rem;
+    color: #fff;
 }
 
 #menu {

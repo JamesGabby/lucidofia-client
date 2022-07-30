@@ -8,8 +8,11 @@
     align-items: center;
 }
 
+/* Remove margin from Date Picker */
 .css-q2lp9a-MuiInputBase-root-MuiOutlinedInput-root {
     margin: 0 !important;
+    background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(217, 217, 217, 0.1995) 101.85%) !important;
+
 }
 
 

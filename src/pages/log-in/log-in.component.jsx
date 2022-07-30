@@ -27,7 +27,7 @@ function LogIn() {
             })
         };
 
-        fetch('http://localhost:8080/users/login', requestOptions)
+        fetch('https://secret-cove-06846.herokuapp.com/users/login', requestOptions)
             .then(async response => {
                 const isJson = response.headers.get('content-type')?.includes('application/json')
                 const data = isJson && await response.json()
