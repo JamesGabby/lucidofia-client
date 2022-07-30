@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/lucidofia-client/static/css/main.b3f9df40.css",
-    "main.js": "/lucidofia-client/static/js/main.c97d100d.js",
+    "main.js": "/lucidofia-client/static/js/main.574d2d9f.js",
     "static/js/787.da136e5a.chunk.js": "/lucidofia-client/static/js/787.da136e5a.chunk.js",
     "static/media/background.png": "/lucidofia-client/static/media/background.8b9dc614d48661b7a4e1.png",
     "index.html": "/lucidofia-client/index.html",
     "main.b3f9df40.css.map": "/lucidofia-client/static/css/main.b3f9df40.css.map",
-    "main.c97d100d.js.map": "/lucidofia-client/static/js/main.c97d100d.js.map",
+    "main.574d2d9f.js.map": "/lucidofia-client/static/js/main.574d2d9f.js.map",
     "787.da136e5a.chunk.js.map": "/lucidofia-client/static/js/787.da136e5a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b3f9df40.css",
-    "static/js/main.c97d100d.js"
+    "static/js/main.574d2d9f.js"
   ]
 }
