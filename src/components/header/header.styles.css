@@ -87,6 +87,18 @@
     padding-left: 2rem;
 }
 
+
+
+@media only screen and (max-width: 1030px) {
+    .menu-dropdown-right {
+        width: 40%;
+    }
+
+    .menu-dropdown-left {
+        width: 60%;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .menu-dropdown-right {
         width: 60%;

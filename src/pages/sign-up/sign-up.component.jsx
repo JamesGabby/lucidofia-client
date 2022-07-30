@@ -60,15 +60,15 @@ class SignUp extends React.Component {
                 <div className="sign-up-container">
                     <form onSubmit={this.handleSubmit} className="form-container">
                         <label>
-                            <input placeholder="Name" type="text" value={this.state.name} onChange={this.handleNameChange} />
+                            <input className="add-dream-input" placeholder="Name" type="text" value={this.state.name} onChange={this.handleNameChange} />
                         </label>
                         <label>
-                            <input placeholder="Email" type="text" value={this.state.email} onChange={this.handleEmailChange} />
+                            <input className="add-dream-input" placeholder="Email" type="text" value={this.state.email} onChange={this.handleEmailChange} />
                         </label>
                         <label>
-                            <input placeholder="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
+                            <input className="add-dream-input" placeholder="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
                         </label>
-                        <input className="input-submit" type="submit" value="Sign up" />
+                        <input className="journal-submit" type="submit" value="Sign up" />
                         <div>
                             Already have an account?{' '}
                             <Link to='/login'>

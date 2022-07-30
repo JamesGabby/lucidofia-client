@@ -25,6 +25,7 @@ const Journal = () => {
         },
       });
 
+    const serverUrl = 'https://secret-cove-06846.herokuapp.com'
     const userToken = useSelector((state) => state.userToken)
     const headers = { 'Content-Type': 'application/json', Authorization: `Bearer ${userToken}` }
 
@@ -41,7 +42,7 @@ const Journal = () => {
             })
         };
 
-        await fetch('https://secret-cove-06846.herokuapp.com/dreams', requestOptions)
+        await fetch(`${serverUrl}/dreams`, requestOptions)
         setTitle('')
         setDescription('')
         setEmotions('')
@@ -54,7 +55,7 @@ const Journal = () => {
             headers: headers
         };
 
-        await fetch(`https://secret-cove-06846.herokuapp.com/dreams/${id}`, requestOptions)
+        await fetch(`${serverUrl}/dreams/${id}`, requestOptions)
     }
 
     const handleTitleChange = (event) => {
@@ -81,7 +82,7 @@ const Journal = () => {
     
     useEffect(() => {
         // GET request using fetch with error handling
-        fetch(`https://secret-cove-06846.herokuapp.com/dreams`, { headers })
+        fetch(`${serverUrl}/dreams`, { headers })
             .then(async response => {
                 const data = await response.json();
     

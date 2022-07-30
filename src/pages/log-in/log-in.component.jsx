@@ -12,6 +12,8 @@ function LogIn() {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
+    const serverUrl = 'https://secret-cove-06846.herokuapp.com'
+
     const user = useSelector((state) => state.user)
     //const userToken = useSelector((state) => state.userToken)
     const userName = useSelector((state) => state.userName)
@@ -27,7 +29,7 @@ function LogIn() {
             })
         };
 
-        fetch('https://secret-cove-06846.herokuapp.com/users/login', requestOptions)
+        fetch(`${serverUrl}/users/login`, requestOptions)
             .then(async response => {
                 const isJson = response.headers.get('content-type')?.includes('application/json')
                 const data = isJson && await response.json()
@@ -68,12 +70,12 @@ function LogIn() {
                 user.length === 0 ? 
                 <form onSubmit={handleSubmit} className="form-container">
                     <label>
-                        <input placeholder="Email" type="text" value={email} onChange={handleEmailChange} />
+                        <input className="add-dream-input" placeholder="Email" type="text" value={email} onChange={handleEmailChange} />
                     </label>
                     <label>
-                        <input placeholder="Password" type="password" value={password} onChange={handlePasswordChange} />
+                        <input className="add-dream-input" placeholder="Password" type="password" value={password} onChange={handlePasswordChange} />
                     </label>
-                    <input className="input-submit" type="submit" value="Log in" />
+                    <input className="journal-submit" type="submit" value="Log in" />
                     <div>
                         Don't have an account?{' '}
                         <Link to='/signup'>
@@ -85,7 +87,7 @@ function LogIn() {
                 <div className="form-container">
                     <h1>Welcome {userName}!</h1>
                     <Link to='/journal'>
-                        <input className="input-submit" type="submit" value="Go to journal" />
+                        <input className="journal-submit" type="submit" value="Go to journal" />
                     </Link>
                 </div>
             }

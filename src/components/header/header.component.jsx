@@ -56,7 +56,7 @@ const Header = () => {
                     {
                         user.length === 0 ? 
                             <Link to='/login'>
-                                <p id="link" style={{color: 'white'}}>Login</p>
+                                <p id="link" style={{color: 'white', paddingTop: '1.2rem'}}>Login</p>
                             </Link>
                         :
                             <p id="link" onClick={handleLogoutClick} style={{paddingTop: '1.2rem'}}> <FiLogOut /> Logout</p>
