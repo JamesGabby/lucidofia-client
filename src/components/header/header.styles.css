@@ -42,7 +42,8 @@
 
 #link:hover {
     font-size: 1.4rem;
-    color: #fff;
+    color: rgb(226, 223, 223);
+    animation: fadeIn 2s;
 }
 
 #menu {

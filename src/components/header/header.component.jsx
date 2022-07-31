@@ -6,7 +6,7 @@ import { useState } from "react";
 import { setUser } from "../../features/user/userSlice";
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { CgClose } from 'react-icons/cg'
-import { HiOutlineBookOpen } from 'react-icons/hi'
+import { HiOutlineBookOpen, HiLogin } from 'react-icons/hi'
 import { FiTag, FiLogOut } from 'react-icons/fi'
 import { BsInfoCircle } from 'react-icons/bs'
 import { RiDraftLine } from 'react-icons/ri'
@@ -56,10 +56,12 @@ const Header = () => {
                     {
                         user.length === 0 ? 
                             <Link to='/login'>
-                                <p id="link" style={{color: 'white', paddingTop: '1.2rem'}}>Login</p>
+                                <p id="link" style={{color: 'white', paddingTop: '1.2rem'}}><HiLogin /> Login</p>
                             </Link>
                         :
-                            <p id="link" onClick={handleLogoutClick} style={{paddingTop: '1.2rem'}}> <FiLogOut /> Logout</p>
+                            <Link to='/'>
+                                <p id="link" onClick={handleLogoutClick} style={{paddingTop: '1.2rem'}}> <FiLogOut /> Logout</p>
+                            </Link>    
                     }
                 </div>
                 

@@ -8,14 +8,6 @@
     align-items: center;
 }
 
-/* Remove margin from Date Picker */
-.css-q2lp9a-MuiInputBase-root-MuiOutlinedInput-root {
-    margin: 0 !important;
-    background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(217, 217, 217, 0.1995) 101.85%) !important;
-
-}
-
-
 .journal-container div {
     font-size: .8rem;
     margin-top: 1rem;
@@ -99,7 +91,7 @@
     font-family: 'Oswald';
 }
 
-  .add-dream-input {
+.add-dream-input {
     box-sizing: border-box;
     font-family: 'Nunito';
 
@@ -250,6 +242,27 @@ label {
     flex: none;
     order: 0;
     flex-grow: 0;
+}
+
+/* Remove margin from Date Picker */
+.css-q2lp9a-MuiInputBase-root-MuiOutlinedInput-root {
+    margin: 0 !important;
+    background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(217, 217, 217, 0.1995) 101.85%) !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .journal-header-container {
+        width: 350px;
+    }
+    .journal-headers {
+        width: 350px;
+    }
+    .add-dream-input {
+        width: 350px;
+    }
+    .add-dream-text-area {
+        width: 350px;
+    }   
 }
 
 
