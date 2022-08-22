@@ -14,15 +14,15 @@ class LandingPageInfo extends React.Component {
             <div className="info-border">
                 <div className="info-container">
                     <div className="info">
-                        <h1>Lorem ipsum dolor, sit amet consec</h1>
+                        <h1>Experience consciousness from a whole new angle</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci optio eligendi, voluptas, inventore exercitationem similique ullam maxime quam molestias odio, sapiente aliquam modi! Quis impedit ex iure vitae, sapiente delectus.</p>
                     </div>
                     <div className="info">
-                        <h1>Lorem ipsum dolor sit amet.</h1>
+                        <h1>Explore the depths of nonphysical phenomena</h1>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla corporis laudantium quasi reprehenderit repudiandae sed vel explicabo accusamus numquam laborum! Accusantium repudiandae recusandae minima nesciunt fuga quidem laborum nam aspernatur!</p>
                     </div>
                     <div className="info">
-                        <h1>ris iure itaque alias quo nihil. Quos animi ab.</h1>
+                        <h1>Gain a whole new perspective of yourself</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, facere? Ad repellat, expedita laboriosam iste sunt debitis est nemo, magni, beatae a magnam doloribus ullam reiciendis eaque. Beatae, expedita aspernatur?</p>
                     </div>
                 </div>
