@@ -21,27 +21,25 @@
 }
 
 .right-side {
-    padding-left: 1rem;
     display: flex;
     flex-direction: row;
     flex-basis: 70%;
     align-items: center;
     justify-content: flex-end;
     font-family: 'Oswald';
-    font-weight: 800;
 }
 
 #link {
     cursor: pointer;
     color: #fff;
     z-index: 100;
-    font-size: 1.3rem;
+    font-size: 1rem;
     padding: 0rem;
     margin: 0.7rem;
 }
 
 #link:hover {
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: rgb(226, 223, 223);
     animation: fadeIn 2s;
 }
@@ -88,7 +86,10 @@
     padding-left: 2rem;
 }
 
-
+.widescreen-links {
+    display: flex;
+    flex-direction: row;
+}
 
 @media only screen and (max-width: 1030px) {
     .menu-dropdown-right {
