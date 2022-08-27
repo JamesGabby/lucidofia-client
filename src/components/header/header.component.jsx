@@ -81,7 +81,7 @@ const Header = () => {
                                     <p id="link"><BsInfoCircle /> About</p>
                                 </Link>
                                 <p id="link"><FiTag /> Shop</p>
-                                <Link to='/'>
+                                <Link to={process.env.PUBLIC_URL}>
                                     <p id="link" onClick={handleLogoutClick}> <FiLogOut /> Logout</p>
                                 </Link>  
                             </div>  

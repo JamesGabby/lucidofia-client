@@ -206,18 +206,24 @@
     margin: 0;
 }
 
-label {
+.journal-label {
     font-size: 1rem;
     display: flex;
     align-self: start;
     padding-top: 0rem;
     width: 100%;
     justify-content: center;
+    color: rgb(197, 194, 194);
 }
 
 .dream-label {
     display: flex;
     justify-content: flex-start;
+}
+
+.container {
+    padding: 0 15rem;
+    margin: 0 !important;
 }
 
 .journal-submit {
@@ -244,7 +250,7 @@ label {
     flex-grow: 0;
 }
 
-/* Remove margin from Date Picker */
+/* Remove margin and add background to Date Picker */
 .css-q2lp9a-MuiInputBase-root-MuiOutlinedInput-root {
     margin: 0 !important;
     background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(217, 217, 217, 0.1995) 101.85%) !important;

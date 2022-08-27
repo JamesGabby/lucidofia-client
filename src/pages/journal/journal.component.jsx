@@ -10,6 +10,12 @@ import TextField from '@mui/material/TextField';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 const Journal = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -18,6 +24,12 @@ const Journal = () => {
     const [totalDreams, setTotalDreams] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
     const [date, setDate] = useState(new Date());
+
+    const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
     const darkTheme = createTheme({
         palette: {
@@ -106,96 +118,102 @@ const Journal = () => {
             <Header />
             {userToken.length > 1 ?
                 <div>
-                    <form onSubmit={handleSubmit} className="journal-container">
-                        <div className="journal-header-container">
-                            <h1>Add dream</h1>
+                    <form onSubmit={handleSubmit}>
+                        <div className="journal-container">
+                            <div className="journal-header-container">
+                                <h1>Add dream</h1>
+                            </div>
+                            <div className="journal-headers">
+                                <h3>Date and Time</h3>
+                                <ThemeProvider theme={darkTheme}>
+                                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                        <DateTimePicker
+                                            renderInput={(props) => <TextField {...props} />}
+                                            value={date}
+                                            onChange={(newValue) => {
+                                            setDate(newValue.getDay() + ' ' + newValue.getMonth())
+                                            }}
+                                            disableFuture={true}
+                                        />
+                                    </LocalizationProvider>
+                                </ThemeProvider>
+                            </div>
+                            <div className="journal-headers">
+                                <h3>Title</h3>
+                            </div>
+                            <label className="journal-label">
+                                <input className="add-dream-input" placeholder="Pink Giraffe" type="text" value={title} onChange={handleTitleChange} />
+                            </label>
+                            <div className="journal-headers">
+                                <h3>What happened?</h3>
+                            </div>
+                            <label className="journal-label"> 
+                                <textarea className="add-dream-text-area" placeholder="I opened my door then..." type="text" value={description} onChange={handleDescChange} />
+                            </label>
+                            <div className="journal-headers">
+                                <h3>How did you feel?</h3>
+                            </div>
+                            <label className="journal-label">
+                                <input className="add-dream-input" placeholder="Amused, shocked, happy..." type="text" value={emotions} onChange={handleEmoteChange} />
+                            </label>
+                            <h3>Were you lucid?
+                                <input className="check-input" placeholder="Lucid" type="checkbox" checked={lucid} onChange={handleLucidChange} />
+                            </h3>
+                            <input className="journal-submit" type="submit" value="Add dream" />
+                            
+                            <div>
                         </div>
-                        <div className="journal-headers">
-                        <h3>Date and Time</h3>
-                            <ThemeProvider theme={darkTheme}>
-                                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                    <DateTimePicker
-                                        renderInput={(props) => <TextField {...props} />}
-                                        value={date}
-                                        onChange={(newValue) => {
-                                          setDate(newValue.getDay() + ' ' + newValue.getMonth())
-                                        }}
-                                        disableFuture={true}
-                                    />
-                                </LocalizationProvider>
-                            </ThemeProvider>
-                        </div>
-                        <div className="journal-headers">
-                            <h3>Title</h3>
-                        </div>
-                        <label>
-                            <input className="add-dream-input" placeholder="Pink Giraffe" type="text" value={title} onChange={handleTitleChange} />
-                        </label>
-                        <div className="journal-headers">
-                            <h3>What happened?</h3>
-                        </div>
-                        <label> 
-                            <textarea className="add-dream-text-area" placeholder="I opened my door then..." type="text" value={description} onChange={handleDescChange} />
-                        </label>
-                        <div className="journal-headers">
-                            <h3>How did you feel?</h3>
-                        </div>
-                        <label>
-                            <input className="add-dream-input" placeholder="Amused, shocked, happy..." type="text" value={emotions} onChange={handleEmoteChange} />
-                        </label>
-                        <h3>Were you lucid?
-                            <input className="check-input" placeholder="Lucid" type="checkbox" checked={lucid} onChange={handleLucidChange} />
-                        </h3>
-                        <input className="journal-submit" type="submit" value="Add dream" />
-                        <div className="dreams-container">
+                        <div style={{paddingTop: '2rem'}} />
+                    
                             { 
                                 totalDreams.slice(0).reverse().map((dream, i) => (
-                                    <div className="dream-list-container">
-                                        <div className="dream-list">
-                                            <span className="delete-button">
-                                                <div onClick={() => deleteDream(dream._id)}><CgClose style={{fontSize: '1.5rem', color: 'white'}} /></div>
-                                            </span>
-                                            <label className="dream-label">Date and Time</label>
-                                            <div className="title-con">
-                                                <h2>{dream.date}</h2>
-                                            </div>
-                                            <label className="dream-label">Title</label>
-                                            <div className="title-con">
-                                                <h2>{dream.title}</h2>
-                                            </div>
-                                            <label className="dream-label">The dream</label>
-                                            <div className="desc-con">
-                                                <p className="fs">{dream.description}</p>
-                                            </div>
-                                            <label className="dream-label">How you felt</label>
-                                            <div className="emote-con">
-                                                <p className="fs">{dream.emotionsAndFeelings}</p>
-                                            </div>
-                                            <label className="dream-label">Were you lucid?</label>
-                                            <p className="lucid-con">{dream.wasLucid ? 'Yes!' : 'Nope'}</p>
-                                        </div>
-                                    </div>
+                                    
+                                    
+                                    <div className="container">
+                                    <Accordion style={{background: 'linear-gradient(180deg, rgba(217, 217, 217, 0.1995) 0%, rgba(217, 217, 217, 0.1995) 101.85%)', color: 'white'}} expanded={expanded === `panel${i}`} onChange={handleChange(`panel${i}`)}>
+                                      <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon sx={{color: 'white'}} />}
+                                        aria-controls={`panel${i}bh-content`}
+                                        id={`panel${i}bh-header`}
+                                       >
+                                        <div style={{paddingLeft: '100%', position: 'absolute', fontSize: '2rem', height: '100%'}}><CgClose /></div>
+                                        <Typography sx={{ width: '33%' }}>
+                                          <b>{dream.title}</b>
+                                        </Typography>
+                                        <Typography sx={{ color: 'rgb(197, 194, 194)' }}>{dream.date}</Typography>
+                                      </AccordionSummary>
+                                      <AccordionDetails>
+                                        <Typography>
+                                          {dream.description}
+                                        </Typography>
+                                      </AccordionDetails>
+                                    </Accordion>
+                                    
+                                  </div>
+                                        
+                                        
+                                    
                                 ))
                             }
                         </div>
                     </form>           
                 </div>
-
-            :   <div>
-                <div className="signup-or-login-msg1">
-                        <Link to='/signup'>
-                            <p>Sign up</p>
-                        </Link>
-                        <span id="span-journal" />
-                        <p>or</p>
-                        <span id="span-journal" />
-                        <Link to='/login'>
-                            <p>Log in</p>
-                        </Link>
-                </div>
-                <div className="signup-or-login-msg2">
-                    <p>to view and create dream entries</p>
-                </div>
+            :   
+                <div>
+                    <div className="signup-or-login-msg1">
+                            <Link to='/signup'>
+                                <p>Sign up</p>
+                            </Link>
+                            <span id="span-journal" />
+                            <p>or</p>
+                            <span id="span-journal" />
+                            <Link to='/login'>
+                                <p>Log in</p>
+                            </Link>
+                    </div>
+                    <div className="signup-or-login-msg2">
+                        <p>to view and create dream entries</p>
+                    </div>
                 </div>
             }
         </div>
@@ -204,3 +222,5 @@ const Journal = () => {
 }
 
 export default Journal;
+
+
