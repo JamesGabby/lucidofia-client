@@ -3,13 +3,11 @@ import './journal.styles.css'
 import Header from "../../components/header/header.component";
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
-import { CgClose } from 'react-icons/cg'
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import TextField from '@mui/material/TextField';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -24,12 +22,11 @@ const Journal = () => {
     const [totalDreams, setTotalDreams] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
     const [date, setDate] = useState(new Date());
-
     const [expanded, setExpanded] = React.useState(false);
 
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
+    const handleChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false);
+    };
 
     const darkTheme = createTheme({
         palette: {
@@ -66,7 +63,6 @@ const Journal = () => {
             method: 'DELETE',
             headers: headers
         };
-
         await fetch(`${serverUrl}/dreams/${id}`, requestOptions)
     }
 
@@ -114,7 +110,7 @@ const Journal = () => {
     }, [totalDreams])
 
     return (
-        <div>
+        <div style={{paddingBottom: '3rem'}}>
             <Header />
             {userToken.length > 1 ?
                 <div>
@@ -160,56 +156,50 @@ const Journal = () => {
                                 <input className="check-input" placeholder="Lucid" type="checkbox" checked={lucid} onChange={handleLucidChange} />
                             </h3>
                             <input className="journal-submit" type="submit" value="Add dream" />
-                            
-                            <div>
-                        </div>
-                        <div style={{paddingTop: '2rem'}} />
-                    
+                            <div style={{paddingTop: '2rem'}} />
                             { 
                                 totalDreams.slice(0).reverse().map((dream, i) => (
-                                    
-                                    
                                     <div className="container">
-                                    <Accordion style={{background: 'linear-gradient(180deg, rgba(217, 217, 217, 0.1995) 0%, rgba(217, 217, 217, 0.1995) 101.85%)', color: 'white'}} expanded={expanded === `panel${i}`} onChange={handleChange(`panel${i}`)}>
-                                      <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon sx={{color: 'white'}} />}
-                                        aria-controls={`panel${i}bh-content`}
-                                        id={`panel${i}bh-header`}
-                                       >
-                                        <div style={{paddingLeft: '100%', position: 'absolute', fontSize: '2rem', height: '100%'}}><CgClose /></div>
-                                        <Typography sx={{ width: '33%' }}>
-                                          <b>{dream.title}</b>
-                                        </Typography>
-                                        <Typography sx={{ color: 'rgb(197, 194, 194)' }}>{dream.date}</Typography>
-                                      </AccordionSummary>
-                                      <AccordionDetails>
-                                        <Typography>
-                                          {dream.description}
-                                        </Typography>
-                                      </AccordionDetails>
-                                    </Accordion>
-                                    
-                                  </div>
-                                        
-                                        
-                                    
+                                        <Accordion style={{background: 'linear-gradient(180deg, rgba(217, 217, 217, 0.1995) 0%, rgba(217, 217, 217, 0.1995) 101.85%)', color: 'white'}} expanded={expanded === `panel${i}`} onChange={handleChange(`panel${i}`)}>
+                                            <AccordionSummary
+                                                expandIcon={<ExpandMoreIcon sx={{color: 'white'}} />}
+                                                aria-controls={`panel${i}bh-content`}
+                                                id={`panel${i}bh-header`}
+                                            >
+                                                <Typography sx={{ width: '33%' }}>
+                                                <b>{dream.title}</b>
+                                                </Typography>
+                                                <Typography sx={{ color: 'rgb(197, 194, 194)' }}>{dream.date}</Typography>
+                                            </AccordionSummary>
+                                            <AccordionDetails>
+                                                <Typography>
+                                                {dream.description}
+                                                </Typography>
+                                            </AccordionDetails>
+                                            <AccordionDetails sx={{paddingTop: '0 !important', color: 'red'}}>
+                                                <Typography >
+                                                <div style={{cursor: 'pointer'}} onClick={() => deleteDream(dream._id)}>Delete Dream</div>
+                                                </Typography>
+                                            </AccordionDetails>
+                                        </Accordion>
+                                    </div>
                                 ))
                             }
                         </div>
-                    </form>           
+                    </form>              
                 </div>
             :   
                 <div>
                     <div className="signup-or-login-msg1">
-                            <Link to='/signup'>
-                                <p>Sign up</p>
-                            </Link>
-                            <span id="span-journal" />
-                            <p>or</p>
-                            <span id="span-journal" />
-                            <Link to='/login'>
-                                <p>Log in</p>
-                            </Link>
+                        <Link to='/signup'>
+                            <p>Sign up</p>
+                        </Link>
+                        <span id="span-journal" />
+                        <p>or</p>
+                        <span id="span-journal" />
+                        <Link to='/login'>
+                            <p>Log in</p>
+                        </Link>
                     </div>
                     <div className="signup-or-login-msg2">
                         <p>to view and create dream entries</p>
@@ -217,10 +207,7 @@ const Journal = () => {
                 </div>
             }
         </div>
-    );
-    
+    );   
 }
 
 export default Journal;
-
-
