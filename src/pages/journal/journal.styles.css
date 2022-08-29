@@ -222,7 +222,7 @@
 }
 
 .container {
-    padding: 0 5rem;
+    padding: 0 2rem;
     margin: 0 !important;
 }
 
@@ -254,6 +254,18 @@
 .css-q2lp9a-MuiInputBase-root-MuiOutlinedInput-root {
     margin: 0 !important;
     background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(217, 217, 217, 0.1995) 101.85%) !important;
+}
+
+.css-15v22id-MuiAccordionDetails-root {
+    padding-top: 0 !important;
+}
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root:last-of-type {
+    min-width: 100% !important;
+}
+
+.css-ahj2mt-MuiTypography-root {
+    width: 100%;
 }
 
 @media only screen and (max-width: 600px) {

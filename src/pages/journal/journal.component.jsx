@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './journal.styles.css'
 import Header from "../../components/header/header.component";
+import Footer from "../../components/footer/footer.component";
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
@@ -32,7 +33,7 @@ const Journal = () => {
         palette: {
           mode: 'dark',
         },
-      });
+    });
 
     const serverUrl = 'https://secret-cove-06846.herokuapp.com'
     const userToken = useSelector((state) => state.userToken)
@@ -50,7 +51,6 @@ const Journal = () => {
                 "wasLucid": lucid
             })
         };
-
         await fetch(`${serverUrl}/dreams`, requestOptions)
         setTitle('')
         setDescription('')
@@ -93,14 +93,12 @@ const Journal = () => {
         fetch(`${serverUrl}/dreams`, { headers })
             .then(async response => {
                 const data = await response.json();
-    
                 // check for error response
                 if (!response.ok) {
                     // get error message from body or default to response statusText
                     const error = (data && data.message) || response.statusText;
                     return Promise.reject(error);
                 }
-    
                 setTotalDreams(data)
             })
             .catch(error => {
@@ -166,14 +164,17 @@ const Journal = () => {
                                                 aria-controls={`panel${i}bh-content`}
                                                 id={`panel${i}bh-header`}
                                             >
-                                                <Typography sx={{ width: '33%' }}>
-                                                <b>{dream.title}</b>
+                                                <Typography sx={{ width: '100%', padding: '0 !important' }}>
+                                                    <b>{dream.title}</b>
                                                 </Typography>
-                                                <Typography sx={{ color: 'rgb(197, 194, 194)' }}>{dream.date}</Typography>
+                                                
                                             </AccordionSummary>
                                             <AccordionDetails>
+                                                <Typography sx={{ color: 'rgb(197, 194, 194)' }}>
+                                                    {dream.date}
+                                                </Typography>
                                                 <Typography>
-                                                {dream.description}
+                                                    {dream.description}
                                                 </Typography>
                                             </AccordionDetails>
                                             <AccordionDetails sx={{paddingTop: '0 !important', color: 'red'}}>
@@ -185,8 +186,10 @@ const Journal = () => {
                                     </div>
                                 ))
                             }
+                            <Footer />
                         </div>
-                    </form>              
+                    </form>
+                                  
                 </div>
             :   
                 <div>
