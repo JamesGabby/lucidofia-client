@@ -43,8 +43,11 @@ function LogIn() {
                 dispatch(setUser(data.user._id))
                 dispatch(setUserName(data.user.name))
             }).catch(error => {
-                setErrorMessage(error.toString())
-                console.error('There was an error.', errorMessage);
+                if (error.toString() === '400') {
+                    setErrorMessage('Email or password is incorrect.')
+                } else {
+                    setErrorMessage('There was an error.', errorMessage)
+                }
             })
     }
 
@@ -76,6 +79,9 @@ function LogIn() {
                         <input className="add-dream-input" placeholder="Password" type="password" value={password} onChange={handlePasswordChange} />
                     </label>
                     <input className="journal-submit" type="submit" value="Log in" />
+                    <div className="error-message">
+                        <p>{errorMessage}</p>
+                    </div>
                     <div>
                         Don't have an account?{' '}
                         <Link to='/signup'>

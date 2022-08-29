@@ -26,3 +26,7 @@ input {
     width: 7rem;
     cursor: pointer;
 }
+
+.error-message p {
+    color: red;
+}
