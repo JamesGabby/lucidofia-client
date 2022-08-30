@@ -119,8 +119,8 @@ const Journal = () => {
                             <div className="journal-header-container">
                                 <h1>Add dream</h1>
                             </div>
-                            <div className="journal-headers">
-                                <h3>Date and Time</h3>
+                            <div >
+                                <h3 className="journal-headers">Date and Time</h3>
                                 <ThemeProvider theme={darkTheme}>
                                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                                         <DateTimePicker
@@ -172,11 +172,17 @@ const Journal = () => {
                                                 
                                             </AccordionSummary>
                                             <AccordionDetails>
-                                                <Typography sx={{ color: 'rgb(197, 194, 194)' }}>
-                                                    {moment(dream.date).format("MMMM Do YYYY, h:mm:ss a")}
-                                                </Typography>
+                                                    <p>{moment(dream.date).format("MMMM Do YYYY, h:mm:ss a")}</p>
                                                 <Typography>
                                                     {dream.description}
+                                                </Typography>
+                                                <p>How you felt</p>
+                                                <Typography>
+                                                    {dream.emotionsAndFeelings}
+                                                </Typography>
+                                                <p>Were you lucid?</p>
+                                                <Typography>
+                                                    {dream.wasLucid}
                                                 </Typography>
                                             </AccordionDetails>
                                             <AccordionDetails sx={{paddingTop: '0 !important', color: 'red'}}>
