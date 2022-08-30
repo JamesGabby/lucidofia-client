@@ -29,6 +29,8 @@ function LogIn() {
             })
         };
 
+        
+
         fetch(`${serverUrl}/users/login`, requestOptions)
             .then(async response => {
                 const isJson = response.headers.get('content-type')?.includes('application/json')
@@ -42,8 +44,15 @@ function LogIn() {
                 dispatch(setUserToken(data.token))
                 dispatch(setUser(data.user._id))
                 dispatch(setUserName(data.user.name))
+                setErrorMessage('Login Successful.')
             }).catch(error => {
-                if (error.toString() === '400') {
+                if (email === '' && password === '') {
+                    setErrorMessage('Please enter your email and password.')
+                } else if (password === '') {
+                    setErrorMessage('Please enter your password.')
+                } else if (email === '') {
+                    setErrorMessage('Please enter your email.')
+                } else if (error.toString() === '400') {
                     setErrorMessage('Email or password is incorrect.')
                 } else {
                     setErrorMessage('There was an error.', errorMessage)
@@ -79,7 +88,7 @@ function LogIn() {
                         <input className="add-dream-input" placeholder="Password" type="password" value={password} onChange={handlePasswordChange} />
                     </label>
                     <input className="journal-submit" type="submit" value="Log in" />
-                    <div className="error-message">
+                    <div className={user.length === 0 ? "error-message" : "success-message"}>
                         <p>{errorMessage}</p>
                     </div>
                     <div>

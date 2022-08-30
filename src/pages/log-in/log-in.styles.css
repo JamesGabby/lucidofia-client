@@ -30,3 +30,7 @@ input {
 .error-message p {
     color: red;
 }
+
+.success-message {
+    color: green;
+}
