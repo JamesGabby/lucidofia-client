@@ -14,6 +14,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import moment from "moment";
 
 const Journal = () => {
     const [title, setTitle] = useState('');
@@ -40,6 +41,7 @@ const Journal = () => {
     const headers = { 'Content-Type': 'application/json', Authorization: `Bearer ${userToken}` }
 
     const postToServer = async () => {
+        console.log(date)
         const requestOptions = {
             method: 'POST',
             headers: headers,
@@ -125,7 +127,7 @@ const Journal = () => {
                                             renderInput={(props) => <TextField {...props} />}
                                             value={date}
                                             onChange={(newValue) => {
-                                            setDate(newValue.getDay() + ' ' + newValue.getMonth())
+                                                setDate(newValue.day())
                                             }}
                                             disableFuture={true}
                                         />
@@ -171,7 +173,7 @@ const Journal = () => {
                                             </AccordionSummary>
                                             <AccordionDetails>
                                                 <Typography sx={{ color: 'rgb(197, 194, 194)' }}>
-                                                    {dream.date}
+                                                    {moment(dream.date).format("MMMM Do YYYY, h:mm:ss a")}
                                                 </Typography>
                                                 <Typography>
                                                     {dream.description}
