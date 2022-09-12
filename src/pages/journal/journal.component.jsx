@@ -120,7 +120,7 @@ const Journal = () => {
                                 <h1>Add dream</h1>
                             </div>
                             <div >
-                                <h3 className="journal-headers">Date and Time</h3>
+                                <h3 className="journal-headers"></h3>
                                 <ThemeProvider theme={darkTheme}>
                                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                                         <DateTimePicker
@@ -135,22 +135,19 @@ const Journal = () => {
                                 </ThemeProvider>
                             </div>
                             <div className="journal-headers">
-                                <h3>Title</h3>
                             </div>
                             <label className="journal-label">
-                                <input className="add-dream-input" placeholder="Pink Giraffe" type="text" value={title} onChange={handleTitleChange} />
+                                <input className="add-dream-input" placeholder="Title" type="text" value={title} onChange={handleTitleChange} />
                             </label>
                             <div className="journal-headers">
-                                <h3>What happened?</h3>
                             </div>
                             <label className="journal-label"> 
-                                <textarea className="add-dream-text-area" placeholder="I opened my door then..." type="text" value={description} onChange={handleDescChange} />
+                                <textarea className="add-dream-text-area" placeholder="Description" type="text" value={description} onChange={handleDescChange} />
                             </label>
                             <div className="journal-headers">
-                                <h3>How did you feel?</h3>
                             </div>
                             <label className="journal-label">
-                                <input className="add-dream-input" placeholder="Amused, shocked, happy..." type="text" value={emotions} onChange={handleEmoteChange} />
+                                <input className="add-dream-input" placeholder="How did you feel?" type="text" value={emotions} onChange={handleEmoteChange} />
                             </label>
                             <h3>Were you lucid?
                                 <input className="check-input" placeholder="Lucid" type="checkbox" checked={lucid} onChange={handleLucidChange} />

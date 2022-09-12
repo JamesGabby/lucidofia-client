@@ -64,7 +64,9 @@ const Header = () => {
                                 <Link to='/about'>
                                     <p id="link"><BsInfoCircle /> About</p>
                                 </Link>
-                                <p id="link"><FiTag /> Shop</p>
+                                <Link to="/shop">
+                                    <p id="link"><FiTag /> Shop</p>
+                                </Link>
                                 <Link to='/login'>
                                     <p id="link" style={{color: 'white', paddingTop: '0'}}><HiLogin /> Login</p>
                                 </Link>
@@ -74,14 +76,16 @@ const Header = () => {
                                 <Link to='/journal'>
                                     <p id="link"><HiOutlineBookOpen /> My Dreams</p>
                                 </Link>
-                                <Link to='/journal'>
+                                <Link to='/drafts'>
                                     <p id="link"><RiDraftLine /> My Drafts</p>
                                 </Link>
                                 <Link to='/about'>
                                     <p id="link"><BsInfoCircle /> About</p>
                                 </Link>
-                                <p id="link"><FiTag /> Shop</p>
-                                <Link to='/#'> 
+                                <Link to="/shop">
+                                    <p id="link"><FiTag /> Shop</p>
+                                </Link>
+                                <Link to='/'> 
                                 {/* {process.env.PUBLIC_URL} */}
                                     <p id="link" onClick={handleLogoutClick}> <FiLogOut /> Logout</p>
                                 </Link>  
@@ -95,14 +99,15 @@ const Header = () => {
                     <Link to='/journal'>
                         <p id="link"><HiOutlineBookOpen /> My Dreams</p>
                     </Link>
-                    <Link to='/journal'>
+                    <Link to='/drafts'>
                         <p id="link"><RiDraftLine /> My Drafts</p>
                     </Link>
                     <Link to='/about'>
                         <p id="link"><BsInfoCircle /> About</p>
                     </Link>
-                    
-                    <p id="link"><FiTag /> Shop</p>
+                    <Link to="/shop">
+                        <p id="link"><FiTag /> Shop</p>
+                    </Link>
                     {
                         user.length === 0 ? 
                             <Link to='/login'>
