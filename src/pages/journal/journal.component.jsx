@@ -157,43 +157,45 @@ const Journal = () => {
                             </h3>
                             <input className="journal-submit" type="submit" value="Add dream" />
                             <div style={{paddingTop: '2rem'}} />
-                            { 
-                                totalDreams.slice(0).reverse().map((dream, i) => (
-                                    <div className="container">
-                                        <Accordion style={{background: 'linear-gradient(180deg, rgba(217, 217, 217, 0.1995) 0%, rgba(217, 217, 217, 0.1995) 101.85%)', color: 'white'}} expanded={expanded === `panel${i}`} onChange={handleChange(`panel${i}`)}>
-                                            <AccordionSummary
-                                                expandIcon={<ExpandMoreIcon sx={{color: 'white'}} />}
-                                                aria-controls={`panel${i}bh-content`}
-                                                id={`panel${i}bh-header`}
-                                            >
-                                                <Typography sx={{ width: '100%', padding: '0 !important' }}>
-                                                    <b>{dream.title}</b>
-                                                </Typography>
-                                                
-                                            </AccordionSummary>
-                                            <AccordionDetails>
-                                                    <p>{moment(dream.date).format("MMMM Do YYYY, h:mm:ss a")}</p>
-                                                <Typography>
-                                                    {dream.description}
-                                                </Typography>
-                                                <p>How you felt</p>
-                                                <Typography>
-                                                    {dream.emotionsAndFeelings}
-                                                </Typography>
-                                                <p>Were you lucid?</p>
-                                                <Typography>
-                                                    {dream.wasLucid}
-                                                </Typography>
-                                            </AccordionDetails>
-                                            <AccordionDetails sx={{paddingTop: '0 !important', color: 'red'}}>
-                                                <Typography >
-                                                <div style={{cursor: 'pointer'}} onClick={() => deleteDream(dream._id)}>Delete Dream</div>
-                                                </Typography>
-                                            </AccordionDetails>
-                                        </Accordion>
-                                    </div>
-                                ))
-                            }
+                            <div className="dream-list-container">
+                                { 
+                                    totalDreams.slice(0).reverse().map((dream, i) => (
+                                        <div className="container">
+                                            <Accordion style={{background: 'linear-gradient(180deg, rgba(217, 217, 217, 0.1995) 0%, rgba(217, 217, 217, 0.1995) 101.85%)', color: 'white'}} expanded={expanded === `panel${i}`} onChange={handleChange(`panel${i}`)}>
+                                                <AccordionSummary
+                                                    expandIcon={<ExpandMoreIcon sx={{color: 'white'}} />}
+                                                    aria-controls={`panel${i}bh-content`}
+                                                    id={`panel${i}bh-header`}
+                                                >
+                                                    <Typography sx={{ width: '100%', padding: '0 !important' }}>
+                                                        <b>{dream.title}</b>
+                                                    </Typography>
+                                                    
+                                                </AccordionSummary>
+                                                <AccordionDetails>
+                                                        <p>{moment(dream.date).format("MMMM Do YYYY, h:mm:ss a")}</p>
+                                                    <Typography>
+                                                        {dream.description}
+                                                    </Typography>
+                                                    <p>How you felt</p>
+                                                    <Typography>
+                                                        {dream.emotionsAndFeelings}
+                                                    </Typography>
+                                                    <p>Were you lucid?</p>
+                                                    <Typography>
+                                                        {dream.wasLucid === true ? 'Yes' : 'No'}
+                                                    </Typography>
+                                                </AccordionDetails>
+                                                <AccordionDetails sx={{paddingTop: '0 !important', color: 'red'}}>
+                                                    <Typography >
+                                                    <div style={{cursor: 'pointer'}} onClick={() => deleteDream(dream._id)}>Delete Dream</div>
+                                                    </Typography>
+                                                </AccordionDetails>
+                                            </Accordion>
+                                        </div>
+                                    ))
+                                }
+                            </div>
                             <Footer />
                         </div>
                     </form>

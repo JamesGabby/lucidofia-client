@@ -251,23 +251,27 @@
     flex-grow: 0;
 }
 
+.dream-list-container {
+    padding: 5rem 10rem;
+    color: aliceblue;
+}
+
 /* Remove margin and add background to Date Picker */
 .css-q2lp9a-MuiInputBase-root-MuiOutlinedInput-root {
     margin: 0 !important;
     background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(217, 217, 217, 0.1995) 101.85%) !important;
 }
 
+/* remove padding below title */
 .css-15v22id-MuiAccordionDetails-root {
     padding-top: 0 !important;
 }
 
-.css-1elwnq4-MuiPaper-root-MuiAccordion-root:last-of-type {
-    min-width: 100% !important;
-}
+/* length of dreams */
+/* .css-1elwnq4-MuiPaper-root-MuiAccordion-root:last-of-type {
+    min-width: 92rem !important;
+} */
 
-.css-ahj2mt-MuiTypography-root {
-    width: 100%;
-}
 
 @media only screen and (max-width: 600px) {
     .journal-header-container {
@@ -282,6 +286,9 @@
     .add-dream-text-area {
         width: 350px;
     }   
+    .dream-list-container {
+        padding: 0;
+    }
 }
 
 
