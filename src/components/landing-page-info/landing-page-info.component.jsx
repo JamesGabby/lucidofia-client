@@ -18,7 +18,7 @@ class LandingPageInfo extends React.Component {
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci optio eligendi, voluptas, inventore exercitationem similique ullam maxime quam molestias odio, sapiente aliquam modi! Quis impedit ex iure vitae, sapiente delectus.</p>
                     </div>
                     <div className="info">
-                        <h1>Gain a Whole New Perspective of Yourself & Reality</h1>
+                        <h1>Gain an Entire New Perspective of Yourself & Reality</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, facere? Ad repellat, expedita laboriosam iste sunt debitis est nemo, magni, beatae a magnam doloribus ullam reiciendis eaque. Beatae, expedita aspernatur?</p>
                     </div>
                     <div className="info">
