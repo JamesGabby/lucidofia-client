@@ -1,6 +1,6 @@
 {
   "name": "lucidofia",
-  "homepage": "https://jamesgabby.github.io/lucidofia-client/",
+  "homepage": "https://lucidofia.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
