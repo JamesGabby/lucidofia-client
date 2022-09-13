@@ -17,6 +17,9 @@ import {
 import { store } from './store'
 import { Provider } from 'react-redux'
 
+//other homepage url for gh-pages deploy for package.json
+//https://jamesgabby.github.io/lucidofia-client/
+
 const container = document.getElementById('root')
 const root = createRoot(container)
 
