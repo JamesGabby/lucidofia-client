@@ -25,11 +25,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start-client": "react-scripts start",
-  "build": "react-scripts build && (cd server && yarn install)",
-  "test": "react-scripts test",
-  "eject": "react-scripts eject",
-  "start": "cd server && yarn start",
+    "start": "npm start",
+    "build": "npm build",
+    "test": "npm test",
+    "eject": "npm eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
