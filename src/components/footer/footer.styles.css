@@ -1,5 +1,5 @@
 .footer {
-    height: 5rem;
+    padding: 2rem 0;
     width: 100%;
     display: flex;
     background-color: #110931;
@@ -8,8 +8,6 @@
     align-items: center;
     font-size: .8rem;
     margin-top: 1rem;
-    bottom: 0;
-    left: 0;
 }
 
 .footer-container {
