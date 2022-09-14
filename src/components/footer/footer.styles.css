@@ -7,6 +7,9 @@
     justify-content: space-evenly;
     align-items: center;
     font-size: .8rem;
+    margin-top: 1rem;
+    bottom: 0;
+    left: 0;
 }
 
 .footer-container {
