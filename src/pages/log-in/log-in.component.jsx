@@ -28,8 +28,6 @@ function LogIn() {
             })
         };
 
-        
-
         fetch(`${serverUrl}/users/login`, requestOptions)
             .then(async response => {
                 const isJson = response.headers.get('content-type')?.includes('application/json')

@@ -1,7 +1,7 @@
 import React from "react";
 import './sign-up.styles.css'
 import Header from "../../components/header/header.component";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -9,7 +9,8 @@ class SignUp extends React.Component {
         this.state = {
           name: '',
           email: '',
-          password: ''
+          password: '',
+          userCreated: false
         };
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -30,7 +31,11 @@ class SignUp extends React.Component {
 
         const response = await fetch('https://secret-cove-06846.herokuapp.com/users', requestOptions)
         const data = await response.json()  
-        console.log(data);
+        if (data) {
+          this.setState({userCreated: true})
+        } else {
+          this.setState({userCreated: false})
+        }
         this.setState({name: ''}) 
         this.setState({email: ''})      
         this.setState({password: ''})
@@ -56,27 +61,28 @@ class SignUp extends React.Component {
     render() {
         return (
             <div className="login-signup-container">
-                <Header />
-                <div className="sign-up-container">
-                    <form onSubmit={this.handleSubmit} className="form-container">
-                        <label>
-                            <input className="add-dream-input" placeholder="Name" type="text" value={this.state.name} onChange={this.handleNameChange} />
-                        </label>
-                        <label>
-                            <input className="add-dream-input" placeholder="Email" type="text" value={this.state.email} onChange={this.handleEmailChange} />
-                        </label>
-                        <label>
-                            <input className="add-dream-input" placeholder="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
-                        </label>
-                        <input className="journal-submit" type="submit" value="Sign up" />
-                        <div>
-                            Already have an account?{' '}
-                            <Link to='/login'>
-                                Log in
-                            </Link>
-                        </div>
-                    </form>
-                </div>
+              <Header />
+                { this.state.userCreated === false ? 
+                  <div className="sign-up-container">
+                      <form onSubmit={this.handleSubmit} className="form-container">
+                          <label>
+                              <input className="add-dream-input" placeholder="Name" type="text" value={this.state.name} onChange={this.handleNameChange} />
+                          </label>
+                          <label>
+                              <input className="add-dream-input" placeholder="Email" type="text" value={this.state.email} onChange={this.handleEmailChange} />
+                          </label>
+                          <label>
+                              <input className="add-dream-input" placeholder="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
+                          </label>
+                          <input className="journal-submit" type="submit" value="Sign up" />
+                          <div>
+                              Already have an account?{' '}
+                              <Link to='/login'>
+                                  Log in
+                              </Link>
+                          </div>
+                      </form>
+                  </div> : <Navigate to="/login" /> }
             </div>
         );
     }
