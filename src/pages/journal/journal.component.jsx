@@ -107,7 +107,7 @@ const Journal = () => {
                 setErrorMessage(error.toString());
                 console.error('There was an error!', errorMessage);
             });
-    }, [totalDreams])
+    }, [])
 
     return (
         <div style={{paddingBottom: '3rem'}}>
@@ -127,7 +127,7 @@ const Journal = () => {
                                             renderInput={(props) => <TextField {...props} />}
                                             value={date}
                                             onChange={(newValue) => {
-                                                setDate(newValue.day())
+                                                setDate(newValue)
                                             }}
                                             disableFuture={true}
                                         />
