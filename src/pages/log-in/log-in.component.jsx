@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './log-in.styles.css'
 import Header from "../../components/header/header.component";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { setUser } from "../../features/user/userSlice";
 import { setUserToken } from "../../features/user/userTokenSlice";
@@ -16,7 +16,6 @@ function LogIn() {
 
     const user = useSelector((state) => state.user)
     //const userToken = useSelector((state) => state.userToken)
-    const userName = useSelector((state) => state.userName)
     const dispatch = useDispatch()
     
     const postToServer = () => {
@@ -99,12 +98,7 @@ function LogIn() {
                     </div>
                 </form>
             :   
-                <div className="form-container">
-                    <h1>Welcome {userName}!</h1>
-                    <Link to='/journal'>
-                        <input className="journal-submit" type="submit" value="Go to journal" />
-                    </Link>
-                </div>
+                <Navigate to="/journal" /> 
             }
         </div>
     );

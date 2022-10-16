@@ -15,6 +15,7 @@ const Header = () => {
     const [showMenu, setShowMenu] = useState(false)
 
     const user = useSelector((state) => state.user)
+    const userName = useSelector((state) => state.userName)
     const dispatch = useDispatch()
 
     const handleLogoutClick = () => {
@@ -87,7 +88,7 @@ const Header = () => {
                                 </Link>
                                 <Link to='/'> 
                                 {/* {process.env.PUBLIC_URL} */}
-                                    <p id="link" onClick={handleLogoutClick}> <FiLogOut /> Logout</p>
+                                    <p id="link" onClick={handleLogoutClick}> <FiLogOut /> Logout ({userName})</p>
                                 </Link>  
                             </div>  
                     }
