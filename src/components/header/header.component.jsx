@@ -116,7 +116,7 @@ const Header = () => {
                             </Link>
                         :
                             <Link to='/#'>
-                                <p id="link" onClick={handleLogoutClick} style={{paddingTop: '1.2rem'}}> <FiLogOut /> Logout</p>
+                                <p id="link" onClick={handleLogoutClick} style={{paddingTop: '1.2rem'}}> <FiLogOut /> Logout ({userName})</p>
                             </Link>    
                     }
                 </div>
