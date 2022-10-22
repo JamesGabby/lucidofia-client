@@ -1,91 +1,81 @@
-import React from "react";
+import React, { useState } from "react";
 import './sign-up.styles.css'
 import Header from "../../components/header/header.component";
 import { Link, Navigate } from "react-router-dom";
 
-class SignUp extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          name: '',
-          email: '',
-          password: '',
-          userCreated: false
-        };
-        this.handlePasswordChange = this.handlePasswordChange.bind(this);
-        this.handleEmailChange = this.handleEmailChange.bind(this);
-        this.handleNameChange = this.handleNameChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+const SignUp = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [userCreated, setUserCreated] = useState(false);
 
-    async postToServer() {
+    async function postToServer() {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                "name": this.state.name,
-                "email": this.state.email,
-                "password": this.state.password
+                "name": name,
+                "email": email,
+                "password": password
             })
         };
 
         const response = await fetch('https://secret-cove-06846.herokuapp.com/users', requestOptions)
         const data = await response.json()  
         if (data) {
-          this.setState({userCreated: true})
+          setUserCreated(true)
         } else {
-          this.setState({userCreated: false})
+          setUserCreated(false)
         }
-        this.setState({name: ''}) 
-        this.setState({email: ''})      
-        this.setState({password: ''})
+        setName('') 
+        setEmail('')    
+        setPassword('')
     }
 
-    handleNameChange(event) {
-        this.setState({name: event.target.value});
+    const handleNameChange = (e) => {
+        setName(e.target.value)
     }
 
-    handleEmailChange(event) {
-        this.setState({email: event.target.value});
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value)
     }
 
-    handlePasswordChange(event) {
-        this.setState({password: event.target.value});
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value)
     }
 
-    handleSubmit(event) {
-        this.postToServer()
-        event.preventDefault();
+    const handleSubmit = (e) => {
+        postToServer()
+        e.preventDefault()
     }
 
-    render() {
-        return (
-            <div className="login-signup-container">
-              <Header />
-                { this.state.userCreated === false ? 
-                  <div className="sign-up-container">
-                      <form onSubmit={this.handleSubmit} className="form-container">
-                          <label>
-                              <input className="add-dream-input" placeholder="Name" type="text" value={this.state.name} onChange={this.handleNameChange} />
-                          </label>
-                          <label>
-                              <input className="add-dream-input" placeholder="Email" type="text" value={this.state.email} onChange={this.handleEmailChange} />
-                          </label>
-                          <label>
-                              <input className="add-dream-input" placeholder="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
-                          </label>
-                          <input className="journal-submit" type="submit" value="Sign up" />
-                          <div>
-                              Already have an account?{' '}
-                              <Link to='/login'>
-                                  Log in
-                              </Link>
-                          </div>
-                      </form>
-                  </div> : <Navigate to="/login" /> }
-            </div>
-        );
-    }
+    
+    return (
+        <div className="login-signup-container">
+          <Header />
+            { userCreated === false ? 
+              <div className="sign-up-container">
+                  <form onSubmit={handleSubmit} className="form-container">
+                      <label>
+                          <input className="add-dream-input" placeholder="Name" type="text" value={name} onChange={handleNameChange} />
+                      </label>
+                      <label>
+                          <input className="add-dream-input" placeholder="Email" type="text" value={email} onChange={handleEmailChange} />
+                      </label>
+                      <label>
+                          <input className="add-dream-input" placeholder="Password" type="password" value={password} onChange={handlePasswordChange} />
+                      </label>
+                      <input className="journal-submit" type="submit" value="Sign up" />
+                      <div>
+                          Already have an account?{' '}
+                          <Link to='/login'>
+                              Log in
+                          </Link>
+                      </div>
+                  </form>
+              </div> : <Navigate to="/login" /> }
+        </div>
+    )
 }
 
 export default SignUp;
