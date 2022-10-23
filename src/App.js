@@ -5,17 +5,13 @@ import LandingPageInfo from './components/landing-page-info/landing-page-info.co
 import React from 'react';
 import Footer from './components/footer/footer.component';
 
-class App extends React.Component {
-
-  render() {
-    return (
-      <div>
-        <Header />
-        <LandingPageVideo />
-        <LandingPageInfo />
-      </div>
-    );
-  }
-}
-
+const App = () => ( 
+  <div>
+    <Header />
+    <LandingPageVideo />
+    <LandingPageInfo />
+    <Footer />
+  </div>
+)
+  
 export default App;

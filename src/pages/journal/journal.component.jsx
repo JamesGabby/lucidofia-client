@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './journal.styles.css'
 import Header from "../../components/header/header.component";
-import Footer from "../../components/footer/footer.component";
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
@@ -193,7 +192,6 @@ const Journal = () => {
                                     ))
                                 }
                             </div>
-                            <Footer />
                         </div>
                     </form>
                                   

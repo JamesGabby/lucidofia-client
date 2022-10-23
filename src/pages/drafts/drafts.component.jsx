@@ -1,7 +1,6 @@
 import React from "react";
 import './drafts.styles.css'
 import Header from "../../components/header/header.component";
-import Footer from "../../components/footer/footer.component";
 
 const Drafts = () => {
 

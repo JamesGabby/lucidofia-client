@@ -1,7 +1,6 @@
 import React from "react";
 import './about.styles.css'
 import Header from "../../components/header/header.component";
-import Footer from "../../components/footer/footer.component";
 
 const About = () => (
     <div>
@@ -12,7 +11,6 @@ const About = () => (
                 <p>- Morpheus, The Matrix</p>
             </div>
         </div>
-        <Footer />
     </div>  
 )
 

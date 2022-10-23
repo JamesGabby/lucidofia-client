@@ -19,7 +19,6 @@ const SignUp = () => {
                 "password": password
             })
         };
-
         const response = await fetch('https://secret-cove-06846.herokuapp.com/users', requestOptions)
         const data = await response.json()  
         if (data) {
