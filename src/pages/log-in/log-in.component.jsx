@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setUser } from "../../features/user/userSlice";
 import { setUserToken } from "../../features/user/userTokenSlice";
 import { setUserName } from "../../features/user/userNameSlice";
-import Footer from "../../components/footer/footer.component";
 
 function LogIn() {
     const [email, setEmail] = useState('');
@@ -79,6 +78,7 @@ function LogIn() {
             {
                 user.length === 0 ? 
                 <form onSubmit={handleSubmit} className="form-container">
+                    <h1>Login</h1>
                     <label>
                         <input className="add-dream-input" placeholder="Email" type="text" value={email} onChange={handleEmailChange} />
                     </label>

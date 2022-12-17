@@ -55,6 +55,7 @@ const SignUp = () => {
             { userCreated === false ? 
               <div className="sign-up-container">
                   <form onSubmit={handleSubmit} className="form-container">
+                      <h1>Sign Up</h1>
                       <label>
                           <input className="add-dream-input" placeholder="Name" type="text" value={name} onChange={handleNameChange} />
                       </label>
