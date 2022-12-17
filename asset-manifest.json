@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/lucidofia-client/static/css/main.fb7258fe.css",
-    "main.js": "/lucidofia-client/static/js/main.5d456f3a.js",
-    "static/js/787.da136e5a.chunk.js": "/lucidofia-client/static/js/787.da136e5a.chunk.js",
-    "static/media/background.png": "/lucidofia-client/static/media/background.8b9dc614d48661b7a4e1.png",
-    "index.html": "/lucidofia-client/index.html",
-    "main.fb7258fe.css.map": "/lucidofia-client/static/css/main.fb7258fe.css.map",
-    "main.5d456f3a.js.map": "/lucidofia-client/static/js/main.5d456f3a.js.map",
-    "787.da136e5a.chunk.js.map": "/lucidofia-client/static/js/787.da136e5a.chunk.js.map"
+    "main.css": "/static/css/main.8b43ed4e.css",
+    "main.js": "/static/js/main.b57c8343.js",
+    "static/js/787.da136e5a.chunk.js": "/static/js/787.da136e5a.chunk.js",
+    "static/media/background.png": "/static/media/background.8b9dc614d48661b7a4e1.png",
+    "index.html": "/index.html",
+    "main.8b43ed4e.css.map": "/static/css/main.8b43ed4e.css.map",
+    "main.b57c8343.js.map": "/static/js/main.b57c8343.js.map",
+    "787.da136e5a.chunk.js.map": "/static/js/787.da136e5a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fb7258fe.css",
-    "static/js/main.5d456f3a.js"
+    "static/css/main.8b43ed4e.css",
+    "static/js/main.b57c8343.js"
   ]
 }
