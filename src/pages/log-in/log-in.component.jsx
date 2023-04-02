@@ -12,7 +12,7 @@ function LogIn() {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
-    const serverUrl = 'https://xofiabase.herokuapp.com/'
+    const serverUrl = 'https://xofiabase.herokuapp.com'
 
     const user = useSelector((state) => state.user)
     //const userToken = useSelector((state) => state.userToken)

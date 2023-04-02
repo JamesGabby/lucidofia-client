@@ -35,7 +35,7 @@ const Journal = () => {
         },
     });
 
-    const serverUrl = 'https://xofiabase.herokuapp.com/'
+    const serverUrl = 'https://xofiabase.herokuapp.com'
     const userToken = useSelector((state) => state.userToken)
     const headers = { 'Content-Type': 'application/json', Authorization: `Bearer ${userToken}` }
 
